@@ -1,5 +1,9 @@
 import './App.css';
 import React, { Component } from "react";
+import BasicInfo from './components/BasicInfo';
+import Education from './components/Education';
+import WorkHistory from './components/WorkHistory';
+import Skills from './components/Skills';
 
 class App extends Component {
   constructor() {
@@ -13,7 +17,12 @@ class App extends Component {
 
   render(){
     return (
-      <div>Hello.</div>
+      <div>
+        <BasicInfo />
+        <Education />
+        <WorkHistory />
+        <Skills />
+      </div>
     );
   }
 }
