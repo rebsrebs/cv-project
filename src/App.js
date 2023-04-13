@@ -1,8 +1,8 @@
 import './App.css';
 import React, { Component } from "react";
 import BasicInfo from './components/BasicInfo';
-import Education from './components/Education';
 import WorkHistory from './components/WorkHistory';
+import Education from './components/Education';
 import Skills from './components/Skills';
 
 class App extends Component {
@@ -19,6 +19,7 @@ class App extends Component {
     return (
       <div>
         <BasicInfo />
+        <hr />
         <Education />
         <WorkHistory />
         <Skills />

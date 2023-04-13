@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/Skills.css';
 
 class Skills extends Component {
 
@@ -16,9 +17,9 @@ class Skills extends Component {
 
   render() {
     return (
-      <div>
+      <div className = 'section'>
         <h2>Skills</h2>
-        <p>skill</p>
+        <p className = 'skill'>skill</p>
       </div>
     )
   }

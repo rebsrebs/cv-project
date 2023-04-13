@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/WorkHistory.css';
 
 class WorkHistory extends Component {
 
@@ -19,12 +20,14 @@ class WorkHistory extends Component {
 
   render() {
     return (
-      <div>
+      <div className = 'section'>
         <h2>Work History</h2>
-        <p>Year</p>
-        <p>Company</p>
-        <p>Title</p>
-        <p>Duties</p>
+        <div className='job'>
+          <p>Year</p>
+          <p>Company</p>
+          <p>Title</p>
+          <p>Duties</p>
+        </div>
       </div>
     )
   }
