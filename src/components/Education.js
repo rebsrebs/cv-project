@@ -6,8 +6,6 @@ class Education extends Component {
   render() {
     return (
       <div className = 'section'>
-        <h2>Education</h2>
-        <hr class="undersectionheader"/>
         {this.props.educationEntries.map((school, idx) => {
             return <div key={school.id} className="entry school">
               <span>
@@ -15,6 +13,9 @@ class Education extends Component {
               </span>
               <span>
                 {school.school}&nbsp;
+              </span>
+              <span>
+                {school.location}&nbsp;
               </span>
               <span>
                 {school.focus}&nbsp;

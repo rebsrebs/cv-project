@@ -6,8 +6,6 @@ class Skills extends Component {
   render() {
     return (
       <div className = 'section'>
-        <h2>Skills</h2>
-        <hr class="undersectionheader"/>
         <ul className="skillList">
 
           {this.props.skillEntries.map((skill, idx) => {
