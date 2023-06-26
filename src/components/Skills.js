@@ -10,6 +10,15 @@ class Skills extends Component {
         <ul>
 
           {this.props.skillEntries.map((skill, idx) => {
+
+            if (idx === this.props.skillEntries.length - 1) {
+              return <span key={skill.id} className="skill">
+              <span className="skill">
+                {skill}
+              </span>
+            </span>
+            }
+
             return <span key={skill.id} className="skill">
               <span className="skill">
                 {skill},&nbsp;
