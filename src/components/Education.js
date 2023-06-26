@@ -7,16 +7,25 @@ class Education extends Component {
     return (
       <div className = 'section'>
         <h2>Education</h2>
-        <div className = 'entry'>
-          <p>2022</p>
-          <p>Yale</p>
-          <p>Psychology</p>
-          <p>BA</p>
-        </div>
+        {this.props.educationEntries.map((school, idx) => {
+            return <div key={school.id} className="school">
+              <span>
+                {school.years}&nbsp;
+              </span>
+              <span>
+                {school.school}&nbsp;
+              </span>
+              <span>
+                {school.focus}&nbsp;
+              </span>
+              <span>
+                {school.degree}
+              </span>
+            </div>
+          })}
       </div>
     )
   }
-
 }
 
 export default Education;

@@ -18,21 +18,47 @@ class App extends Component {
       },
       education: {
         educationEntry: {
-          year: '',
+          years: '',
           school: '',
           focus: '',
           degree: '',
         },
-        educationEntries: [],
+        educationEntries: [
+          {
+            years: '2000 - 2004',
+            school: 'The Cooper Union',
+            focus: 'Art',
+            degree: 'BFA',
+          },
+          {
+            years: '2030',
+            school: 'Hunter',
+            focus: 'Art History',
+            degree: 'MFA',
+          }
+        ],
       },
       workHistory: {
         workEntry: {
-          year: '',
+          years: '',
           company: '',
           title: '',
           duties: '',
         },
-        workEntries: [],
+        workEntries: [
+          {
+            years: '1982 - 1985',
+            company: 'Apple',
+            title: 'Mail sorter',
+            duties: 'sorting mail',
+          },
+          {
+            years: '1986 - 1988',
+            company: 'Microsoft',
+            title: 'Mail sorter',
+            duties: 'sorting mail',
+          }
+        ],
       },
       skillSet: {
         skillEntry: '',

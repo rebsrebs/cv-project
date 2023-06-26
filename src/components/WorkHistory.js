@@ -7,12 +7,23 @@ class WorkHistory extends Component {
     return (
       <div className = 'section'>
         <h2>Work History</h2>
-        <div className='job'>
-          <p>Year</p>
-          <p>Company</p>
-          <p>Title</p>
-          <p>Duties</p>
-        </div>
+
+        {this.props.workEntries.map((job, idx) => {
+            return <div key={job.id} className="job">
+              <p>
+                {job.years}
+              </p>
+              <p>
+                {job.company}
+              </p>
+              <p>
+                {job.title}
+              </p>
+              <p>
+                {job.duties}
+              </p>
+            </div>
+          })}
       </div>
     )
   }
