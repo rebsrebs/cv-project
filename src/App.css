@@ -4,23 +4,72 @@
   font-family:'Courier New', Courier, monospace;
 }
 
-.section {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+button {
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 1px solid red;
 }
 
-/* .entry {
-  color: blue;
-  display: flex;
-  flex-direction: row;
-  gap:10px;
-} */
+button:hover {
+  background-color: pink;
+}
 
-/* .job {
-  color: red;
+button:active {
+  background-color:darksalmon;
+}
+
+#appwrapper {
+  background-color: rgb(233, 220, 220);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+#buttons {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-} */
+  gap: 20px;
+  padding: 20px;
+}
+
+#resumewrapper, #formwrapper {
+  background-color: white;
+  width: 90%;
+}
+
+#resumewrapper {
+  padding: 50px;
+  width: 612px;
+  height: 792px;
+}
+
+.section, hr {
+  margin-bottom: 40px;
+}
+
+.section {
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 20px;
+  font-family:'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  font-weight: normal;
+}
+
+hr.undersectionheader {
+  margin-bottom: 15px;
+}
+
+.entry {
+  line-height: 20px;
+}
+
+
 

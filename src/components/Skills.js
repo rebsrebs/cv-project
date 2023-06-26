@@ -7,22 +7,20 @@ class Skills extends Component {
     return (
       <div className = 'section'>
         <h2>Skills</h2>
-        <ul>
+        <hr class="undersectionheader"/>
+        <ul className="skillList">
 
           {this.props.skillEntries.map((skill, idx) => {
 
+            // if last entry, don't put comma at end
             if (idx === this.props.skillEntries.length - 1) {
               return <span key={skill.id} className="skill">
-              <span className="skill">
                 {skill}
-              </span>
             </span>
             }
 
             return <span key={skill.id} className="skill">
-              <span className="skill">
                 {skill},&nbsp;
-              </span>
             </span>
           })}
           
@@ -30,7 +28,6 @@ class Skills extends Component {
       </div>
     )
   }
-
 }
 
 export default Skills;

@@ -6,10 +6,11 @@ class WorkHistory extends Component {
   render() {
     return (
       <div className = 'section'>
-        <h2>Work History</h2>
+        <h2>Experience</h2>
+        <hr class="undersectionheader"/>
 
         {this.props.workEntries.map((job, idx) => {
-            return <div key={job.id} className="job">
+            return <div key={job.id} className="entry job">
               <p>
                 {job.years}
               </p>

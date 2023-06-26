@@ -1,4 +1,7 @@
 .skill {
-  font-size: 20px;
-  color: purple;
+  text-transform: capitalize;
+}
+
+.skillList {
+  line-height: 20px;
 }

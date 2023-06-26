@@ -62,7 +62,7 @@ class App extends Component {
       },
       skillSet: {
         skillEntry: '',
-        skillEntries: ['typing','MS Excel', 'MS Word'],
+        skillEntries: ['typing','MS Excel', 'MS Word', 'Adobe Creative Suite', 'Proficient in French, Spanish, and Italian', 'ProTools', 'Final Cut Pro', 'Ableton'],
       },
       mode: 'edit',
     }
@@ -86,7 +86,7 @@ class App extends Component {
             email = { this.state.basicInfo.email }
             phone = { this.state.basicInfo.phone }
             />
-          <hr />
+          {/* <hr /> */}
           <Education 
             educationEntries = { this.state.education.educationEntries }
           />
