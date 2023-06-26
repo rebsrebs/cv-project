@@ -9,43 +9,71 @@ class App extends Component {
   constructor() {
     super();
     this.state = { 
-      cv: {
-        firstName: '',
-      }
+      basicInfo: {
+        firstName: 'George',
+        lastName: 'Piquart',
+        address: '123 Pine Street',
+        phone: '363-345-5677',
+        email: 'georgepiquart@gmail.com',
+      },
+      education: {
+        educationEntry: {
+          year: '',
+          school: '',
+          focus: '',
+          degree: '',
+        },
+        educationEntries: [],
+      },
+      workHistory: {
+        workEntry: {
+          year: '',
+          company: '',
+          title: '',
+          duties: '',
+        },
+        workEntries: [],
+      },
+      skillSet: {
+        skillEntry: '',
+        skillEntries: ['typing','MS Excel', 'MS Word'],
+      },
+      mode: 'edit',
     }
   }
 
   render(){
     return (
-      <div>
-        <BasicInfo />
-        <hr />
-        <Education />
-        <WorkHistory />
-        <Skills />
+      <div id="appwrapper">
+        <h1>Resume Builder</h1>
+        <div id="buttons">
+          <button id="editbtn">Edit</button>
+          <button id="savebtn">Save</button>
+          <button id="clearbtn">Clear</button>
+        </div>
+
+        <div id="resumewrapper">
+          <BasicInfo 
+            firstName = { this.state.basicInfo.firstName }
+            lastName = { this.state.basicInfo.lastName }
+            address = { this.state.basicInfo.address }
+            email = { this.state.basicInfo.email }
+            phone = { this.state.basicInfo.phone }
+            />
+          <hr />
+          <Education 
+            educationEntries = { this.state.education.educationEntries }
+          />
+          <WorkHistory 
+            workEntries = { this.state.workHistory.workEntries }
+          /> 
+          <Skills 
+            skillEntries = { this.state.skillSet.skillEntries }
+          />
+        </div>
       </div>
     );
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;

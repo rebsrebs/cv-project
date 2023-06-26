@@ -3,21 +3,6 @@ import '../styles/Education.css';
 
 class Education extends Component {
 
-  constructor() {
-    super();
-
-    this.state = {
-      entry: {
-        year: '',
-        school: '',
-        focus: '',
-        degree: '',
-      },
-      entries: [],
-    };
-
-  }
-
   render() {
     return (
       <div className = 'section'>

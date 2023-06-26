@@ -3,21 +3,6 @@ import '../styles/WorkHistory.css';
 
 class WorkHistory extends Component {
 
-  constructor() {
-    super();
-
-    this.state = {
-      job: {
-        year: '',
-        company: '',
-        title: '',
-        duties: '',
-      },
-      jobs: [],
-    };
-
-  }
-
   render() {
     return (
       <div className = 'section'>
