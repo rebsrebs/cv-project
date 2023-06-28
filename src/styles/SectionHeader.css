@@ -1,0 +1,22 @@
+
+.sectionheader {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+h2 {
+  margin-right: 10px;
+  vertical-align:baseline;
+}
+
+.editBtn {
+  align-self: center;
+  justify-self: center;
+  margin-bottom: 2px;
+}
+
+hr.undersectionheader {
+  margin-bottom: 10px;
+}

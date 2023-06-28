@@ -4,6 +4,7 @@ import BasicInfo from './components/BasicInfo';
 import WorkHistory from './components/WorkHistory';
 import Education from './components/Education';
 import Skills from './components/Skills';
+import SectionHeader from './components/SectionHeader';
 
 class App extends Component {
   constructor() {
@@ -99,20 +100,17 @@ class App extends Component {
             phone = { this.state.basicInfo.phone }
           />
 
-          <h2>Education</h2>
-          <hr class="undersectionheader"/>
+          <SectionHeader name="Education"/>
           <Education 
             educationEntries = { this.state.education.educationEntries }
           />
 
-          <h2>Experience</h2>
-          <hr class="undersectionheader"/>  
+          <SectionHeader name="Experience"/>
           <WorkHistory 
             workEntries = { this.state.workHistory.workEntries }
           /> 
           
-          <h2>Skills</h2>
-          <hr class="undersectionheader"/>
+          <SectionHeader name="Skills"/>
           <Skills 
             skillEntries = { this.state.skillSet.skillEntries }
           />
