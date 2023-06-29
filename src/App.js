@@ -11,22 +11,30 @@ class App extends Component {
     super();
     this.state = { 
       basicInfo: {
-        firstName: 'George',
-        lastName: 'Piquart',
-        addressLine1: '123 Pine Street',
-        addressLine2: 'New York, NY 12345',
-        phone: '363-345-5677',
-        email: 'georgepiquart@gmail.com',
+        firstName: 'First name',
+        lastName: 'Last name',
+        addressLine1: 'Address line 1',
+        addressLine2: 'Address line 2',
+        phone: 'Phone number',
+        email: 'Email address',
+        mode: 'display',
       },
       education: {
         educationEntry: {
-          years: '',
-          school: '',
-          location: '',
-          focus: '',
-          degree: '',
+          years: 'Year',
+          school: 'School name',
+          location: 'Location',
+          focus: 'Major',
+          degree: 'Degree',
         },
         educationEntries: [
+          {
+            years: 'Year',
+            school: 'School name',
+            location: 'Location',
+            focus: 'Major',
+            degree: 'Degree',
+          },
           {
             years: '2000 - 2004',
             school: 'The Cooper Union',
@@ -42,6 +50,7 @@ class App extends Component {
             degree: 'MFA',
           }
         ],
+        mode: 'display',
       },
       workHistory: {
         workEntry: {
@@ -70,12 +79,13 @@ class App extends Component {
             duties: 'sorting mail',
           }
         ],
+        mode: 'display',
       },
       skillSet: {
         skillEntry: '',
         skillEntries: ['typing','MS Excel', 'MS Word', 'Adobe Creative Suite', 'Proficient in French, Spanish, and Italian', 'ProTools', 'Final Cut Pro', 'Ableton'],
+        mode: 'display',
       },
-      mode: 'edit',
     }
   }
 
