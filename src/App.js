@@ -94,11 +94,6 @@ class App extends Component {
       <div id="appwrapper">
 
         <h1>Resume Builder</h1>
-        <div id="buttons">
-          <button id="editbtn">Edit</button>
-          <button id="savebtn">Save</button>
-          <button id="clearbtn">Clear</button>
-        </div>
 
         <div id="resumewrapper">
           <BasicInfo 
