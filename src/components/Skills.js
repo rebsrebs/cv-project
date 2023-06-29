@@ -15,11 +15,11 @@ class Skills extends Component {
             {this.props.skillEntries.map((skill, idx) => {
               // if last entry, don't put comma at end
               if (idx === this.props.skillEntries.length - 1) {
-                return <span key={skill.id} className="skill">
+                return <span key={skill.idx} className="skill">
                   {skill}
               </span>
               }
-              return <span key={skill.id} className="skill">
+              return <span key={skill.idx} className="skill">
                   {skill},&nbsp;
               </span>
             })}

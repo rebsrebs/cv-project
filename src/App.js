@@ -5,6 +5,7 @@ import WorkHistory from './components/WorkHistory';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import SectionHeader from './components/SectionHeader';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class App extends Component {
           location: 'Location',
           focus: 'Major',
           degree: 'Degree',
+          id: uniqid(),
         },
         educationEntries: [
           {
@@ -34,6 +36,7 @@ class App extends Component {
             location: 'Location',
             focus: 'Major',
             degree: 'Degree',
+            id: 1,
           },
           {
             years: '2000 - 2004',
@@ -41,6 +44,7 @@ class App extends Component {
             location: 'New York, NY',
             focus: 'Art',
             degree: 'BFA',
+            id: 2,
           },
           {
             years: '2030',
@@ -48,6 +52,7 @@ class App extends Component {
             location: 'New York, NY',
             focus: 'Art History',
             degree: 'MFA',
+            id: 3,
           }
         ],
         mode: 'display',
@@ -60,6 +65,7 @@ class App extends Component {
           location: '',
           title: '',
           duties: '',
+          id: uniqid(),
         },
         workEntries: [
           {
@@ -69,6 +75,7 @@ class App extends Component {
             location: 'New York, NY',
             title: 'Mail sorter',
             duties: 'sorting mail',
+            id: 1,
           },
           {
             startYear: '1986',
@@ -77,6 +84,7 @@ class App extends Component {
             location: 'New York, NY',
             title: 'Mail sorter',
             duties: 'sorting mail',
+            id: 2,
           }
         ],
         mode: 'display',
@@ -94,6 +102,13 @@ class App extends Component {
     console.log(`You clicked the edit button for ${name} `)
     const newState = Object.assign({}, this.state);
     newState.skillSet.mode = "edit";
+    this.setState(newState);
+  }
+
+  handleSave = (name) => {
+    console.log(`You clicked the save button for ${name} `)
+    const newState = Object.assign({}, this.state);
+    newState.skillSet.mode = "display";
     this.setState(newState);
   }
 
@@ -118,6 +133,8 @@ class App extends Component {
             section="education"
             name="Education"
             handleEdit={this.handleEdit}
+            handleSave={this.handleSave}
+            mode = { this.state.education.mode }
           />
           <Education 
             educationEntries = { this.state.education.educationEntries }
@@ -128,6 +145,8 @@ class App extends Component {
             section="workHistory"
             name="Experience"
             handleEdit={this.handleEdit}
+            handleSave={this.handleSave}
+            mode = { this.state.workHistory.mode }
           />
           <WorkHistory 
             workEntries = { this.state.workHistory.workEntries }
@@ -138,11 +157,14 @@ class App extends Component {
             section="skillSet"
             name="Skills"
             handleEdit={this.handleEdit}
+            handleSave={this.handleSave}
+            mode = { this.state.skillSet.mode }
           />
 
           <Skills 
             skillEntries = { this.state.skillSet.skillEntries }
             handleEdit={this.handleEdit}
+            handleSave={this.handleSave}
             mode = { this.state.skillSet.mode }
           />
 
