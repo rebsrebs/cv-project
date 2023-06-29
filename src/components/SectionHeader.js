@@ -9,7 +9,13 @@ class SectionHeader extends Component {
       <>
         <div className = 'sectionheader'>
         <h2>{ this.props.name }</h2>
-        <img src={editBtn} alt="edit" width="22px" className = "editBtn"/>
+        <img src={editBtn} 
+          role="button"
+          alt="edit" 
+          width="22px" 
+          className = "editBtn"
+          onClick = {() => this.props.handleEdit(this.props.section)}
+        />
         </div>
         <hr className="undersectionheader"/>  
       </>

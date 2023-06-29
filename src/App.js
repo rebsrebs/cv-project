@@ -86,7 +86,15 @@ class App extends Component {
         skillEntries: ['typing','MS Excel', 'MS Word', 'Adobe Creative Suite', 'Proficient in French, Spanish, and Italian', 'ProTools', 'Final Cut Pro', 'Ableton'],
         mode: 'display',
       },
+      mode: 'edit',
     }
+  }
+
+  handleEdit = (name) => {
+    console.log(`You clicked the edit button for ${name} `)
+    const newState = Object.assign({}, this.state);
+    newState.skillSet.mode = "edit";
+    this.setState(newState);
   }
 
   render(){
@@ -103,22 +111,41 @@ class App extends Component {
             addressLine2 = { this.state.basicInfo.addressLine2 }
             email = { this.state.basicInfo.email }
             phone = { this.state.basicInfo.phone }
+            mode = { this.state.basicInfo.mode }
           />
 
-          <SectionHeader name="Education"/>
+          <SectionHeader 
+            section="education"
+            name="Education"
+            handleEdit={this.handleEdit}
+          />
           <Education 
             educationEntries = { this.state.education.educationEntries }
+            mode = { this.state.education.mode }
           />
 
-          <SectionHeader name="Experience"/>
+          <SectionHeader 
+            section="workHistory"
+            name="Experience"
+            handleEdit={this.handleEdit}
+          />
           <WorkHistory 
             workEntries = { this.state.workHistory.workEntries }
+            mode = { this.state.workHistory.mode }
           /> 
           
-          <SectionHeader name="Skills"/>
+          <SectionHeader 
+            section="skillSet"
+            name="Skills"
+            handleEdit={this.handleEdit}
+          />
+
           <Skills 
             skillEntries = { this.state.skillSet.skillEntries }
+            handleEdit={this.handleEdit}
+            mode = { this.state.skillSet.mode }
           />
+
         </div>
 
       </div>
