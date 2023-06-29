@@ -11,17 +11,17 @@ h2 {
   align-self:flex-end;
 }
 
-.editBtn {
+.Btn {
   align-self:flex-end;
   padding: 5px;
   border-radius: 50%;
 }
 
-.editBtn:hover {
+.Btn:hover {
   background-color: rgb(245, 228, 231);
 }
 
-.editBtn:active {
+.Btn:active {
   background-color: rgb(244, 174, 187);
 }
 

@@ -6,6 +6,7 @@ import Education from './components/Education';
 import Skills from './components/Skills';
 import SectionHeader from './components/SectionHeader';
 import uniqid from 'uniqid';
+import { setProperty } from './helpers';
 
 class App extends Component {
   constructor() {
@@ -98,18 +99,18 @@ class App extends Component {
     }
   }
 
-  handleEdit = (name) => {
-    console.log(`You clicked the edit button for ${name} `)
+  handleEdit = (section) => {
+    console.log(`You clicked the edit button for ${section} `)
     const newState = Object.assign({}, this.state);
-    newState.skillSet.mode = "edit";
-    this.setState(newState);
+    
+    this.setState(setProperty(newState, `${section}.mode`, 'edit'));
   }
 
-  handleSave = (name) => {
-    console.log(`You clicked the save button for ${name} `)
+  handleSave = (section) => {
+    console.log(`You clicked the save button for ${section} `)
     const newState = Object.assign({}, this.state);
-    newState.skillSet.mode = "display";
-    this.setState(newState);
+    
+    this.setState(setProperty(newState, `${section}.mode`, 'display'));
   }
 
   render(){
