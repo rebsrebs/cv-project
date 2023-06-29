@@ -8,13 +8,21 @@
 
 h2 {
   margin-right: 10px;
-  vertical-align:baseline;
+  align-self:flex-end;
 }
 
 .editBtn {
-  align-self: center;
-  justify-self: center;
-  margin-bottom: 2px;
+  align-self:flex-end;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.editBtn:hover {
+  background-color: rgb(245, 228, 231);
+}
+
+.editBtn:active {
+  background-color: rgb(244, 174, 187);
 }
 
 hr.undersectionheader {
