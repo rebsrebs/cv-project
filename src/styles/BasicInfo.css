@@ -1,6 +1,8 @@
 .basicinfo {
   margin-bottom: 40px;
   font-size: 14px;
+  display: flex;
+  align-self: flex-start;
 }
 
 p {
@@ -15,6 +17,19 @@ p {
   margin-bottom: 8px;
 }
 
+.fullnameinputs{
+  display: flex;
+}
+
 .address, .email, .phone {
   margin-left: 10px;
+}
+
+.basicinfoform {
+  display: flex;
+  flex-direction: column;
+}
+
+.basicinfobtn {
+  align-self: flex-start;
 }

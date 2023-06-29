@@ -12,15 +12,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = { 
-      basicInfo: {
-        firstName: 'First name',
-        lastName: 'Last name',
-        addressLine1: 'Address line 1',
-        addressLine2: 'Address line 2',
-        phone: 'Phone number',
-        email: 'Email address',
-        mode: 'display',
-      },
       education: {
         educationEntry: {
           years: 'Year',
@@ -121,13 +112,6 @@ class App extends Component {
 
         <div id="resumewrapper">
           <BasicInfo 
-            firstName = { this.state.basicInfo.firstName }
-            lastName = { this.state.basicInfo.lastName }
-            addressLine1 = { this.state.basicInfo.addressLine1 }
-            addressLine2 = { this.state.basicInfo.addressLine2 }
-            email = { this.state.basicInfo.email }
-            phone = { this.state.basicInfo.phone }
-            mode = { this.state.basicInfo.mode }
           />
 
           <SectionHeader 
