@@ -33,7 +33,9 @@ class EducationDisplay extends Component {
                   </span>
                 </div>
                   <div className = "entrybtns">
-                    <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn"/>
+
+                    <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn" data-schoolid={school.id}/>
+
                     <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.editEntry}
                     className="editBtn entryBtn"/>
                 </div>

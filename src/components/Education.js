@@ -9,6 +9,7 @@ class Education extends Component {
 
   constructor() {
     super();
+    // this.handleDelete = this.handleDelete.bind(this)
     this.state = {
       educationEntry: {
         years: '',
@@ -91,10 +92,12 @@ class Education extends Component {
     });
   };
 
-  handleDelete = (index) => {
+  // need to get some identifier of the one clicked
+  handleDelete = (e) => {
+    const schoolID = e.target.dataset.schoolid;
     this.setState( { 
       ...this.state,
-      educationEntries: this.state.educationEntries.filter((el, idx) => idx !== index),
+      educationEntries: this.state.educationEntries.filter((el) => el.id !== schoolID),
     });
   };
 
@@ -166,6 +169,7 @@ class Education extends Component {
             <div className = 'section'>
             <EducationDisplay 
               educationEntries = { this.state.educationEntries }
+              handleDelete = { this.handleDelete }
             />
             <AddBtn 
                 text='School'
