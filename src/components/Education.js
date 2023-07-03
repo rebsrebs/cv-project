@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 import SectionHeader from "./SectionHeader";
 import EducationDisplay from "./EducationDisplay";
 import AddBtn from "./AddBtn";
+import EducationForm from "./EducationForm";
 
 class Education extends Component {
 
@@ -101,6 +102,12 @@ class Education extends Component {
     });
   };
 
+  handleEditSchool = (e) => {
+    const schoolID = e.target.dataset.schoolid;
+    console.log(schoolID);
+    
+  }
+
   handleAddClick = () => {
     console.log('add school was clicked');
     this.setState({
@@ -131,35 +138,12 @@ class Education extends Component {
             <EducationDisplay 
               educationEntries = { this.state.educationEntries }
             />
-            <form action="" className="educationform">
-            <h3>Add School</h3>
-              <label htmlFor="years" className="left">Years</label>
-              <input onChange={this.handleChange} className="right" type="text" name="years" placeholder="e.g. 2010 - 2014"/>
-              
-              <label htmlFor="School" className="left">School</label>
-              <input onChange={this.handleChange} className="right" type="text" name="school" placeholder="School name"/>
-
-              <label htmlFor="Location" className="left">Location</label>
-              <input onChange={this.handleChange} className="right" type="text" name="location" placeholder="Location"/>
+            <EducationForm
+              handleChange={this.handleChange}
+              handleSubmitEducationEntry={this.handleSubmitEducationEntry}
+              handleCancelAddSchool={this.handleCancelAddSchool}
+            />
             
-              <label htmlFor="focus" className="left">Major</label>
-              <input onChange={this.handleChange} className="right" type="text" name="focus" placeholder="Major"/>
-              
-              <label htmlFor="degree" className="left">Degree</label>
-              <input onChange={this.handleChange} className="right" type="text" name="degree" placeholder="Degree"/>
-
-              <div className="buttons">
-              <button 
-              type="button"
-              onClick={this.handleSubmitEducationEntry}
-              >Save</button>
-              <button
-              type="button"
-              onClick={this.handleCancelAddSchool}
-              >Cancel</button>
-              </div>
-              
-            </form>
             </>
           ) : 
           (
