@@ -12,43 +12,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = { 
-      education: {
-        educationEntry: {
-          years: 'Year',
-          school: 'School name',
-          location: 'Location',
-          focus: 'Major',
-          degree: 'Degree',
-          id: uniqid(),
-        },
-        educationEntries: [
-          {
-            years: 'Year',
-            school: 'School name',
-            location: 'Location',
-            focus: 'Major',
-            degree: 'Degree',
-            id: 1,
-          },
-          {
-            years: '2000 - 2004',
-            school: 'The Cooper Union',
-            location: 'New York, NY',
-            focus: 'Art',
-            degree: 'BFA',
-            id: 2,
-          },
-          {
-            years: '2030',
-            school: 'Hunter',
-            location: 'New York, NY',
-            focus: 'Art History',
-            degree: 'MFA',
-            id: 3,
-          }
-        ],
-        mode: 'display',
-      },
       workHistory: {
         workEntry: {
           startYear: '',
@@ -114,16 +77,8 @@ class App extends Component {
           <BasicInfo 
           />
 
-          <SectionHeader 
-            section="education"
-            name="Education"
-            handleEdit={this.handleEdit}
-            handleSave={this.handleSave}
-            mode = { this.state.education.mode }
-          />
+          
           <Education 
-            educationEntries = { this.state.education.educationEntries }
-            mode = { this.state.education.mode }
           />
 
           <SectionHeader 

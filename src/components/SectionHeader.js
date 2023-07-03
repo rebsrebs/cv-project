@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import editBtn from '../images/edit_g.svg';
-import saveBtn from '../images/save_g.svg';
+// import saveBtn from '../images/save_g.svg';
+import viewBtn from '../images/view_g.svg';
 import '../styles/SectionHeader.css';
 
 class SectionHeader extends Component {
@@ -23,12 +24,13 @@ class SectionHeader extends Component {
             />
           ) : (
             <img 
-              src={saveBtn} 
+              src={viewBtn} 
               role="button"
-              alt="save" 
+              alt="view" 
               width="22px" 
               className = "Btn"
               onClick = {() => this.props.handleSave(this.props.section)}
+              // onClick = {() => this.props.onSubmitEducationEntry()}
             />
           )
         }
