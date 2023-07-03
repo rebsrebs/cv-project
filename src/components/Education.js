@@ -46,7 +46,7 @@ class Education extends Component {
     });
   };
 
-  // this just toggles back to display mode
+  // this just toggles back to display mode for section header only
   handleSave = (section) => {
     console.log(`You clicked the save button for ${section} `)
     this.setState({
@@ -54,6 +54,7 @@ class Education extends Component {
       mode: 'display'
     });
   }
+
 
   handleSubmitEducationEntry = () => {
     console.log('Education entries array length is');
@@ -73,6 +74,21 @@ class Education extends Component {
     });
     console.log('Education entries array length is');
     console.log(this.state.educationEntries.length);
+  };
+
+  handleCancelAddSchool = () => {
+    this.setState({
+      educationEntries: this.state.educationEntries,
+      educationEntry: {
+        years: '',
+        school: '',
+        location: '',
+        focus: '',
+        degree: '',
+        id: uniqid(),
+      },
+      mode: 'display',
+    });
   };
 
   handleDelete = (index) => {
@@ -134,7 +150,10 @@ class Education extends Component {
               type="button"
               onClick={this.handleSubmitEducationEntry}
               >Save</button>
-              <button>Cancel</button>
+              <button
+              type="button"
+              onClick={this.handleCancelAddSchool}
+              >Cancel</button>
               </div>
               
             </form>
