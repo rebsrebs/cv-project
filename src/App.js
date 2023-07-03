@@ -80,6 +80,7 @@ class App extends Component {
           
           <Education 
           />
+          <div className="spacer"></div>
 
           <SectionHeader 
             section="workHistory"
@@ -92,6 +93,7 @@ class App extends Component {
             workEntries = { this.state.workHistory.workEntries }
             mode = { this.state.workHistory.mode }
           /> 
+          <div className="spacer"></div>
           
           <SectionHeader 
             section="skillSet"
@@ -107,10 +109,11 @@ class App extends Component {
             handleSave={this.handleSave}
             mode = { this.state.skillSet.mode }
           />
+          <div className="spacer"></div>
 
         </div>
-
       </div>
+      
     );
   }
 }

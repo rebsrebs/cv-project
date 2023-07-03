@@ -4,6 +4,11 @@
   font-family:'Courier New', Courier, monospace;
 }
 
+:root {
+  --btn-hover: rgb(248, 216, 241);
+  --btn-active: hsl(19, 66%, 83%);
+}
+
 form {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
 }
@@ -14,7 +19,6 @@ button {
   background-color: white;
   border-style: none;
   color: black;
-  text-transform: lowercase;
   font-family:'Times New Roman', Times, serif;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
@@ -60,7 +64,7 @@ h1 {
   height: 792px;
 }
 
-.section, hr {
+hr, .spacer {
   margin-bottom: 40px;
 }
 

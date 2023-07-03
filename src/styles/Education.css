@@ -1,3 +1,16 @@
+.entryrow {
+  padding-left: 2px;
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: 21px;
+  align-items: center;
+  align-content: center;
+}
+
+.entryrow:hover {
+  background-color:rgb(247, 239, 229);
+}
+
 .entry {
   display: flex;
   flex-direction: row;
@@ -41,4 +54,23 @@ button {
   padding: 5px 20px 5px 20px;
   margin: 10px;
   border-style: none;
+}
+
+.sample {
+  font-style:italic;
+}
+
+.entryBtn {
+  margin-left: 15px;
+  border-radius:50%;
+  height: 19px;
+  vertical-align:middle;
+}
+
+.entryBtn:hover {
+  background-color: var(--btn-hover);
+}
+
+.entryBtn:active {
+  background-color: var(--btn-active);
 }

@@ -3,7 +3,7 @@ import '../styles/Education.css';
 import uniqid from 'uniqid';
 import SectionHeader from "./SectionHeader";
 import EducationDisplay from "./EducationDisplay";
-import EducationSample from "./EducationSample";
+import AddBtn from "./AddBtn";
 
 class Education extends Component {
 
@@ -19,9 +19,14 @@ class Education extends Component {
         id: uniqid(),
       },
       educationEntries: [],
-      mode: 'edit',
+      mode: 'display',
     }
   }
+
+// MODES
+// form - show form
+// display - show all entries with buttons
+// presentation - show all entries without buttons
 
   handleChange = (e) => {
     this.setState(previousState => {
@@ -72,9 +77,22 @@ class Education extends Component {
 
   handleDelete = (index) => {
     this.setState( { 
+      ...this.state,
       educationEntries: this.state.educationEntries.filter((el, idx) => idx !== index),
     });
   };
+
+  handleAddClick = () => {
+    console.log('add school was clicked');
+    this.setState({
+      ...this.state,
+      mode: 'form'
+    });
+  }
+
+
+
+
 
   render() {
     return (
@@ -87,11 +105,13 @@ class Education extends Component {
           handleSave={this.handleSave}
         />
 
-        {/* If section is in edit mode, show form. */}
 
         {
-          this.state.mode === 'edit' ? (
-            <div className = 'section'>
+          this.state.mode === 'form' ? (
+            <>
+            <EducationDisplay 
+              educationEntries = { this.state.educationEntries }
+            />
             <form action="" className="educationform">
             <h3>Add School</h3>
               <label htmlFor="years" className="left">Years</label>
@@ -118,8 +138,8 @@ class Education extends Component {
               </div>
               
             </form>
-            </div>
-          ) : this.state.educationEntries.length > 0 ? 
+            </>
+          ) : 
           (
 
             // if section is NOT in edit mode and there are entries, show them
@@ -128,13 +148,12 @@ class Education extends Component {
             <EducationDisplay 
               educationEntries = { this.state.educationEntries }
             />
+            <AddBtn 
+                text='School'
+                clickHandler={this.handleAddClick}
+              />
         </div>
-          ) : (
-
-            // if section is NOT in edit mode and there are no entries, show sample entry
-
-            <EducationSample />
-          )
+          ) 
         }  
       </>
     )

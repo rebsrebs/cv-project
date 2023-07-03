@@ -7,7 +7,7 @@ class EducationSample extends Component {
     return (
       <>
         <div className = 'section'>
-          <div className="entry school">
+          <div className="entry school sample">
               <span>
                 e.g. 2000 - 2004&nbsp;
               </span>
