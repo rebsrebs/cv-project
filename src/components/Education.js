@@ -10,7 +10,6 @@ class Education extends Component {
 
   constructor() {
     super();
-    // this.handleDelete = this.handleDelete.bind(this)
     this.state = {
       educationEntry: {
         years: '',
@@ -39,23 +38,7 @@ class Education extends Component {
       };
     });
   }
-  
-  handleEdit = (section) => {
-    console.log(`You clicked the edit button for ${section} `)
-    this.setState({
-      ...this.state,
-      mode: 'edit'
-    });
-  };
 
-  // this just toggles back to display mode for section header only
-  handleSave = (section) => {
-    console.log(`You clicked the save button for ${section} `)
-    this.setState({
-      ...this.state,
-      mode: 'display'
-    });
-  }
 
 
   handleSubmitEducationEntry = () => {
@@ -102,10 +85,22 @@ class Education extends Component {
     });
   };
 
-  handleEditSchool = (e) => {
+  handleEditSchoolBtn = (e) => {
+    // get the schoolid from the button that was clicked
     const schoolID = e.target.dataset.schoolid;
     console.log(schoolID);
-    
+    // change the mode of that particular school from display to edit    
+  }
+
+  handleEditSchoolSubmit = (e) => {
+    const schoolID = e.target.dataset.schoolid;
+    console.log(schoolID);
+    // I need to take what's on the form and replace the current
+    this.setState( { 
+      ...this.state,
+      educationEntries: this.state.educationEntries.filter((el) => el.id !== schoolID).concat(this.state.educationEntry),
+    });
+
   }
 
   handleAddClick = () => {
@@ -126,9 +121,6 @@ class Education extends Component {
         <SectionHeader 
           section="education"
           name="Education"
-          mode={this.state.mode}
-          handleEdit={this.handleEdit}
-          handleSave={this.handleSave}
         />
 
 
