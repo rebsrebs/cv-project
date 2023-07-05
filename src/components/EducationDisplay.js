@@ -3,8 +3,21 @@ import '../styles/Education.css';
 import deleteBtn from '../images/delete_g.svg';
 import editBtn from '../images/edit_g.svg';
 import EducationSample from "./EducationSample";
+import EducationForm from "./EducationForm";
 
 class EducationDisplay extends Component {
+
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     mode: 'display'
+  //   }
+  // }
+
+  // accept prop for mode - display or editingschool
+  // accept optional prop for schoolid
+  // if mode is editingschool, in the map, if it matches school id, display editing form instead of entry.
+  // when you call EducationEditForm you have to pass handleChange, and all the parts of the entry to fill in the form.
 
   render() {
     return (
@@ -14,7 +27,9 @@ class EducationDisplay extends Component {
         {this.props.educationEntries.length > 0 ? 
 
         this.props.educationEntries.map((school) => {
-              return <div key={school.id} className="entryrow">
+
+          return this.props.schooltoedit !== school.id ?
+              <div key={school.id} className="entryrow">
                 <div className="entry school">
                   <span>
                     {school.years}&nbsp;
@@ -36,10 +51,16 @@ class EducationDisplay extends Component {
 
                     <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn" data-schoolid={school.id}/>
 
-                    <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.editEntry}
+                    <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditSchoolBtn}
                     className="editBtn entryBtn" data-schoolid={school.id}/>
                 </div>
-              </div>
+              </div> : 
+              <EducationForm 
+                handleChange={this.props.handleChange}
+                educationEntry = { this.props.educationEntry }
+              />
+
+
             }) : <EducationSample />
 
 

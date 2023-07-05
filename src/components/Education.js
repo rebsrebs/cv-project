@@ -21,6 +21,8 @@ class Education extends Component {
       },
       educationEntries: [],
       mode: 'display',
+      formview: null,
+      schooltoedit: null,
     }
   }
 
@@ -39,12 +41,7 @@ class Education extends Component {
     });
   }
 
-
-
   handleSubmitEducationEntry = () => {
-    console.log('Education entries array length is');
-    console.log(this.state.educationEntries.length);
-    console.log(this.state.educationEntry);
     this.setState({
       educationEntries: this.state.educationEntries.concat(this.state.educationEntry),
       educationEntry: {
@@ -56,9 +53,9 @@ class Education extends Component {
         id: uniqid(),
       },
       mode: 'display',
+      formview: null,
+      schooltoedit: null,
     });
-    console.log('Education entries array length is');
-    console.log(this.state.educationEntries.length);
   };
 
   handleCancelAddSchool = () => {
@@ -73,6 +70,8 @@ class Education extends Component {
         id: uniqid(),
       },
       mode: 'display',
+      formview: null,
+      schooltoedit: null,
     });
   };
 
@@ -87,8 +86,24 @@ class Education extends Component {
 
   handleEditSchoolBtn = (e) => {
     // get the schoolid from the button that was clicked
+    // THIS IS WHERE I SHOULD SET THE ENTRY TO THE SCHOOL ID STUFF
     const schoolID = e.target.dataset.schoolid;
-    console.log(schoolID);
+    console.log(`you clicked edit button next to school ${schoolID}`)
+    const theschool = this.state.educationEntries.find((el) => el.id === schoolID)
+    this.setState({
+      ...this.state,
+      educationEntry: {
+        years: theschool.years,
+        school: theschool.school,
+        location: theschool.location,
+        focus: theschool.focus,
+        degree: theschool.degree,
+        id: theschool.id,
+      },
+      mode: 'form',
+      formview: 'edit',
+      schooltoedit: schoolID,
+    });
     // change the mode of that particular school from display to edit    
   }
 
@@ -107,7 +122,8 @@ class Education extends Component {
     console.log('add school was clicked');
     this.setState({
       ...this.state,
-      mode: 'form'
+      mode: 'form',
+      formview: 'add',
     });
   }
 
@@ -122,30 +138,34 @@ class Education extends Component {
           section="education"
           name="Education"
         />
-
-
         {
           this.state.mode === 'form' ? (
             <>
-            <EducationDisplay 
-              educationEntries = { this.state.educationEntries }
-            />
-            <EducationForm
-              handleChange={this.handleChange}
-              handleSubmitEducationEntry={this.handleSubmitEducationEntry}
-              handleCancelAddSchool={this.handleCancelAddSchool}
-            />
-            
+              <EducationDisplay 
+                educationEntries = { this.state.educationEntries }
+              />
+              <EducationForm
+                handleChange={this.handleChange}
+                handleSubmitEducationEntry={this.handleSubmitEducationEntry}
+                handleEditSchoolSubmit={this.handleEditSchoolSubmit}
+                handleCancelAddSchool={this.handleCancelAddSchool}
+                formview={this.state.formview}
+                schooltoedit={this.state.schooltoedit}
+                educationEntries = {this.state.educationEntries}
+                educationEntry = { this.state.educationEntry }
+              />
             </>
           ) : 
           (
-
             // if section is NOT in edit mode and there are entries, show them
-
             <div className = 'section'>
             <EducationDisplay 
               educationEntries = { this.state.educationEntries }
+              educationEntry = { this.state.educationEntry }
               handleDelete = { this.handleDelete }
+              schooltoedit = { this.state.schooltoedit}
+              handleChange = {this.handleChange}
+              handleEditSchoolBtn = {this.handleEditSchoolBtn}
             />
             <AddBtn 
                 text='School'
