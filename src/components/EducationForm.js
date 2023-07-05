@@ -6,7 +6,7 @@ class EducationForm extends Component {
 
   render() {
 
-    const { years, school, location, focus, degree } = this.props.educationEntry;
+    const { years, school, location, focus, degree, id } = this.props.educationEntry;
 
     return (
       this.props.formview === 'add' ? (
@@ -64,7 +64,8 @@ class EducationForm extends Component {
               <button 
               type="button"
               onClick={this.props.handleEditSchoolSubmit}
-              >Save</button>
+              data-schoolid={id}
+              >Save Edits</button>
               <button
               type="button"
               onClick={this.props.handleCancelAddSchool}

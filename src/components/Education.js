@@ -78,6 +78,7 @@ class Education extends Component {
   // need to get some identifier of the one clicked
   handleDelete = (e) => {
     const schoolID = e.target.dataset.schoolid;
+    console.log(schoolID);
     this.setState( { 
       ...this.state,
       educationEntries: this.state.educationEntries.filter((el) => el.id !== schoolID),
@@ -109,13 +110,22 @@ class Education extends Component {
 
   handleEditSchoolSubmit = (e) => {
     const schoolID = e.target.dataset.schoolid;
-    console.log(schoolID);
-    // I need to take what's on the form and replace the current
-    this.setState( { 
+
+    this.setState({ 
       ...this.state,
       educationEntries: this.state.educationEntries.filter((el) => el.id !== schoolID).concat(this.state.educationEntry),
+      educationEntry: {
+        years: '',
+        school: '',
+        location: '',
+        focus: '',
+        degree: '',
+        id: uniqid(),
+      },
+      mode: 'display',
+      formview: null,
+      schooltoedit: null,
     });
-
   }
 
   handleAddClick = () => {
@@ -126,10 +136,6 @@ class Education extends Component {
       formview: 'add',
     });
   }
-
-
-
-
 
   render() {
     return (
