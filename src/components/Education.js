@@ -17,7 +17,7 @@ class Education extends Component {
         location: '',
         focus: '',
         degree: '',
-        id: uniqid(),
+        schoolID: uniqid(),
       },
       educationEntries: [],
       mode: 'display',
@@ -25,11 +25,6 @@ class Education extends Component {
       schooltoedit: null,
     }
   }
-
-// MODES
-// form - show form
-// display - show all entries with buttons
-// presentation - show all entries without buttons
 
   handleChange = (e) => {
     this.setState(previousState => {
@@ -41,7 +36,7 @@ class Education extends Component {
     });
   }
 
-  handleSubmitEducationEntry = () => {
+  handleAddSchoolSubmit = () => {
     this.setState({
       educationEntries: this.state.educationEntries.concat(this.state.educationEntry),
       educationEntry: {
@@ -50,7 +45,7 @@ class Education extends Component {
         location: '',
         focus: '',
         degree: '',
-        id: uniqid(),
+        schoolID: uniqid(),
       },
       mode: 'display',
       formview: null,
@@ -67,7 +62,7 @@ class Education extends Component {
         location: '',
         focus: '',
         degree: '',
-        id: uniqid(),
+        schoolID: uniqid(),
       },
       mode: 'display',
       formview: null,
@@ -75,22 +70,19 @@ class Education extends Component {
     });
   };
 
-  // need to get some identifier of the one clicked
   handleDelete = (e) => {
-    const schoolID = e.target.dataset.schoolid;
-    console.log(schoolID);
+    const thisSchoolID = e.target.dataset.schoolid;
+    console.log(thisSchoolID);
     this.setState( { 
       ...this.state,
-      educationEntries: this.state.educationEntries.filter((el) => el.id !== schoolID),
+      educationEntries: this.state.educationEntries.filter((el) => el.schoolID !== thisSchoolID),
     });
   };
 
   handleEditSchoolBtn = (e) => {
-    // get the schoolid from the button that was clicked
-    // THIS IS WHERE I SHOULD SET THE ENTRY TO THE SCHOOL ID STUFF
-    const schoolID = e.target.dataset.schoolid;
-    console.log(`you clicked edit button next to school ${schoolID}`)
-    const theschool = this.state.educationEntries.find((el) => el.id === schoolID)
+    const thisSchoolID = e.target.dataset.schoolid;
+    console.log(`you clicked edit button next to school ${thisSchoolID}`)
+    const theschool = this.state.educationEntries.find((el) => el.schoolID === thisSchoolID)
     this.setState({
       ...this.state,
       educationEntry: {
@@ -99,28 +91,27 @@ class Education extends Component {
         location: theschool.location,
         focus: theschool.focus,
         degree: theschool.degree,
-        id: theschool.id,
+        schoolID: theschool.schoolID,
       },
       mode: 'form',
       formview: 'edit',
-      schooltoedit: schoolID,
+      schooltoedit: thisSchoolID,
     });
-    // change the mode of that particular school from display to edit    
   }
 
   handleEditSchoolSubmit = (e) => {
-    const schoolID = e.target.dataset.schoolid;
+    const thisSchoolID = e.target.dataset.schoolid;
 
     this.setState({ 
       ...this.state,
-      educationEntries: this.state.educationEntries.filter((el) => el.id !== schoolID).concat(this.state.educationEntry),
+      educationEntries: this.state.educationEntries.filter((el) => el.schoolID !== thisSchoolID).concat(this.state.educationEntry),
       educationEntry: {
         years: '',
         school: '',
         location: '',
         focus: '',
         degree: '',
-        id: uniqid(),
+        schoolID: uniqid(),
       },
       mode: 'display',
       formview: null,
@@ -152,7 +143,7 @@ class Education extends Component {
               />
               <EducationForm
                 handleChange={this.handleChange}
-                handleSubmitEducationEntry={this.handleSubmitEducationEntry}
+                handleAddSchoolSubmit={this.handleAddSchoolSubmit}
                 handleEditSchoolSubmit={this.handleEditSchoolSubmit}
                 handleCancelAddSchool={this.handleCancelAddSchool}
                 formview={this.state.formview}
