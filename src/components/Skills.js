@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uniqid from 'uniqid';
+import SectionHeader from "./SectionHeader";
 import '../styles/Skills.css';
 import AddBtn from "./AddBtn";
 
@@ -68,7 +69,12 @@ handleEditSkillSetClick = () => {
 
     return (
       <>
+      <SectionHeader 
+          section="skills"
+          name="Skills"
+        />
       { // DISPLAY MODE
+      
         this.state.mode === 'display' ? (
           <div className='section'>
             <ul className="skillList">
