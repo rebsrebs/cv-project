@@ -60,6 +60,10 @@ handleSubmitAddSkill = () => {
   })
 }
 
+handleEditSkillSetClick = () => {
+  console.log('you clicked the edit skill set button')
+}
+
   render() {
 
     return (
@@ -85,6 +89,7 @@ handleSubmitAddSkill = () => {
             clickHandler={this.handleAddClick}
           />
           </div>
+
         ) : (
           // EDIT MODE
           <>
@@ -93,8 +98,8 @@ handleSubmitAddSkill = () => {
               <label htmlFor="skillName" className="left">Skill</label>
               <input type="text" name="skillName" className="right" onChange={ this.handleChange } placeholder="e.g. typing or Microsoft Word"/>
               <div className="buttons">
-                <button onClick = { this.handleSubmitAddSkill }>Save</button>
-                <button onClick = { this.handleCancelAddSkill }>Cancel</button>
+                <button type="button" onClick = { this.handleSubmitAddSkill }>Save</button>
+                <button type="button" onClick = { this.handleCancelAddSkill }>Cancel</button>
               </div>
             </form>
           </>
