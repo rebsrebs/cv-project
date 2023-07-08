@@ -36,7 +36,10 @@ class Experience extends Component {
   }
 
   handleDelete = (e) => {
-    console.log(`you clicked delete job ${e.target.value}`)
+    this.setState({
+      ...this.state,
+      workEntries: this.state.workEntries.filter((job) => job.jobID !== e.target.dataset.jobid ),
+    });
   }
 
   handleEditJobClick = (e) => {
