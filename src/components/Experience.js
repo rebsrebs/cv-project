@@ -42,6 +42,16 @@ class Experience extends Component {
     });
   }
 
+  handleCancelAddJob = () => {
+    console.log('you clicked cancel add job')
+    this.setState({
+      ...this.state,
+      mode: 'display',
+      formview: null,
+      jobtoedit: null,
+    });
+  }
+
   handleEditJobClick = (e) => {
     console.log(`you clicked edit job ${e.target.value}`);
   }
@@ -92,6 +102,7 @@ class Experience extends Component {
           formview = {this.state.formview}
           jobtoedit = {this.state.jobtoedit}
           handleChange = {this.handleChange }
+          handleCancelAddJob = {this.handleCancelAddJob}
           handleDelete = { this.handleDelete }
           handleEditJobClick = { this.handleEditJobClick }
           handleAddJobSubmit = {this.handleAddJobSubmit}

@@ -49,6 +49,7 @@ class ExperienceDisplay extends Component {
         handleChange = {this.props.handleChange}
         formview = {this.props.formview}
         handleAddJobSubmit = {this.props.handleAddJobSubmit}
+        handleCancelAddJob = {this.props.handleCancelAddJob}
       />
       }
         </div>
