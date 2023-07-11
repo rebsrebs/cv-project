@@ -51,7 +51,7 @@ class EducationDisplay extends Component {
                 <EducationEditForm 
                   handleChange={this.props.handleChange}
                   educationEntry = { this.props.educationEntry }
-                  formview = {this.props.formview}
+                  formtype = {this.props.formtype}
                   handleEditSchoolFormSubmit = {this.props.handleEditSchoolFormSubmit}
                   handlehandleSchoolFormCancel = {this.props.handleSchoolFormCancel}
                   key={school.schoolID}
@@ -60,11 +60,11 @@ class EducationDisplay extends Component {
           }
         </div>
 
-        {this.props.formview === 'add' ? (
+        {this.props.formtype === 'add' ? (
           <EducationAddForm 
             handleChange={this.props.handleChange}
             handleAddSchoolFormSubmit = {this.props.handleAddSchoolFormSubmit}
-            formview={this.props.formview}
+            formtype={this.props.formtype}
             handleSchoolFormCancel = {this.props.handleSchoolFormCancel}
           />
         ) : (null)}

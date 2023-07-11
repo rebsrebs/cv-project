@@ -20,7 +20,7 @@ class Education extends Component {
       },
       educationEntries: [],
       mode: 'display',
-      formview: null,
+      formtype: null,
       schooltoedit: null,
     }
   }
@@ -47,7 +47,7 @@ class Education extends Component {
         schoolID: uniqid(),
       },
       mode: 'display',
-      formview: null,
+      formtype: null,
       schooltoedit: null,
     });
   };
@@ -64,7 +64,7 @@ class Education extends Component {
         schoolID: uniqid(),
       },
       mode: 'display',
-      formview: null,
+      formtype: null,
       schooltoedit: null,
     });
   };
@@ -93,7 +93,7 @@ class Education extends Component {
         schoolID: theschool.schoolID,
       },
       mode: 'form',
-      formview: 'edit',
+      formtype: 'edit',
       schooltoedit: thisSchoolID,
     });
   }
@@ -113,7 +113,7 @@ class Education extends Component {
         schoolID: uniqid(),
       },
       mode: 'display',
-      formview: null,
+      formtype: null,
       schooltoedit: null,
     });
   }
@@ -123,7 +123,7 @@ class Education extends Component {
     this.setState({
       ...this.state,
       mode: 'form',
-      formview: 'add',
+      formtype: 'add',
     });
   }
 
@@ -144,7 +144,7 @@ class Education extends Component {
                 handleAddSchoolFormSubmit={this.handleAddSchoolFormSubmit}
                 handleEditSchoolFormSubmit={this.handleEditSchoolFormSubmit}
                 handleSchoolFormCancel={this.handleSchoolFormCancel}
-                formview={this.state.formview}
+                formtype={this.state.formtype}
                 schooltoedit={this.state.schooltoedit}
                 // dont show below once you figure out how to not render those buttons
                 handleDeleteSchool = { this.handleDeleteSchool }

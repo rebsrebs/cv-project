@@ -7,7 +7,7 @@ class EducationAddForm extends Component {
   render() {
 
     return (
-      this.props.formview === 'add' ? (
+      this.props.formtype === 'add' ? (
       <>
         <form action="" className="educationform">
 
