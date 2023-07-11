@@ -10,48 +10,48 @@ class ExperienceDisplay extends Component {
   render() {
     return(
       <>
-      <div className = 'section'>
-        
-      {this.props.workEntries.length > 0 ? 
+        <div className = 'section'>
+        {
+          this.props.workEntries.map((job) => {
+            return (
+              <div className="entryrow" key={job.jobID}>
+              <div className="entry job">
+                <p>
+                  <span>{job.startYear}</span> 
+                  {job.endYear !== '' &&
+                  <span>&nbsp;-&nbsp;{job.endYear}</span>
+                  }
+                </p>
+                <p>
+                  {job.company} {job.location}
+                </p>
+                <p>
+                  {job.title}
+                </p>
+                <p>
+                  {job.duties}
+                </p>
+              </div>
+            
+            <div className = "entrybtns">
+              <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn" data-jobid={job.jobID}/>
 
-        this.props.workEntries.map((job) => {
-          return (
-            <div className="entryrow" key={job.jobID}>
-            <div className="entry job">
-              <p>
-                <span>{job.startYear}</span> 
-                {job.endYear !== '' &&
-                <span>&nbsp;-&nbsp;{job.endYear}</span>
-                }
-              </p>
-              <p>
-                {job.company} {job.location}
-              </p>
-              <p>
-                {job.title}
-              </p>
-              <p>
-                {job.duties}
-              </p>
+              <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditJobClick}
+              className="editBtn entryBtn" data-jobid={job.jobID}/>
             </div>
-          
-          <div className = "entrybtns">
-            <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn" data-jobid={job.jobID}/>
-
-            <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditJobClick}
-            className="editBtn entryBtn" data-jobid={job.jobID}/>
-          </div>
-          </div> 
-          )})
-        :
-      <ExperienceForm 
-        workEntry = {this.props.workEntry}
-        handleChange = {this.props.handleChange}
-        formview = {this.props.formview}
-        handleAddJobSubmit = {this.props.handleAddJobSubmit}
-        handleCancelAddJob = {this.props.handleCancelAddJob}
-      />
-      }
+            </div> 
+            )})
+            } 
+      
+        <ExperienceForm 
+          workEntry = {this.props.workEntry}
+          handleChange = {this.props.handleChange}
+          formtype = {this.props.formtype}
+          mode = {this.props.mode}
+          handleAddJobSubmit = {this.props.handleAddJobSubmit}
+          handleCancelAddJob = {this.props.handleCancelAddJob}
+        />
+      
         </div>
       </>
     )

@@ -9,8 +9,10 @@ class ExperienceForm extends Component {
     const { startYear, endYear, company, location, title, duties, jobID } = this.props.workEntry;
 
     return (
-      this.props.formview === 'add' ? (
-      <> 
+      this.props.mode === 'display' ? (
+        null ) :
+      <>
+      {this.props.formtype === 'add' ? (
         <form action="" className="experienceform">
           <h3>Add Experience</h3>
             <label htmlFor="startYear" className="left">Start Year</label>
@@ -43,9 +45,8 @@ class ExperienceForm extends Component {
             </div>
               
           </form>
-          </>
-      ) : this.props.formview === 'edit' ?( 
-        <>
+          
+      ) : (
           <form action="" className="experienceform">
             <h3>Edit Job</h3>
               <label htmlFor="startYear" className="left">Start Year</label>
@@ -78,9 +79,8 @@ class ExperienceForm extends Component {
               >Cancel</button>
             </div> 
           </form>
-          
+      )}
         </>
-      ) : (null)
     )
   }
 }
