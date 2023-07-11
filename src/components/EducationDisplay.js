@@ -24,9 +24,6 @@ class EducationDisplay extends Component {
                 <div key={school.schoolID} className="entryrow">
                   <div className="entry school">
 
-                    <span>{school.schoolID}</span>
-                    <span>{this.props.schooltoedit}</span>
-
                     <span>
                       {school.years}&nbsp;
                     </span>
@@ -45,8 +42,8 @@ class EducationDisplay extends Component {
                   </div>
 
                   <div className = "entrybtns">
-                    <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn" data-schoolid={school.schoolID}/>
-                    <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditSchoolBtn}
+                    <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDeleteSchool} className="deleteBtn entryBtn" data-schoolid={school.schoolID}/>
+                    <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditSchoolClick}
                     className="editBtn entryBtn" data-schoolid={school.schoolID}/>
                   </div>
                 </div> //end entry row
@@ -55,7 +52,9 @@ class EducationDisplay extends Component {
                   handleChange={this.props.handleChange}
                   educationEntry = { this.props.educationEntry }
                   formview = {this.props.formview}
-                  handleEditSchoolBtn = {this.props.handleEditSchoolBtn}
+                  handleEditSchoolFormSubmit = {this.props.handleEditSchoolFormSubmit}
+                  handlehandleSchoolFormCancel = {this.props.handleSchoolFormCancel}
+                  key={school.schoolID}
                 />
             }) : <EducationSample />
           }
@@ -64,12 +63,11 @@ class EducationDisplay extends Component {
         {this.props.formview === 'add' ? (
           <EducationAddForm 
             handleChange={this.props.handleChange}
-            handleAddSchoolSubmit = {this.props.handleAddSchoolSubmit}
+            handleAddSchoolFormSubmit = {this.props.handleAddSchoolFormSubmit}
+            formview={this.props.formview}
+            handleSchoolFormCancel = {this.props.handleSchoolFormCancel}
           />
         ) : (null)}
-
-
-
       </>
     )
   }

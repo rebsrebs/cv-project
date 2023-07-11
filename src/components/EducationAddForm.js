@@ -32,12 +32,12 @@ class EducationAddForm extends Component {
 
             <button 
             type="button"
-            onClick={this.props.handleAddSchoolSubmit}
+            onClick={this.props.handleAddSchoolFormSubmit}
             >Save</button>
 
             <button
             type="button"
-            onClick={this.props.handleCancelAddSchool}
+            onClick={this.props.handleSchoolFormCancel}
             >Cancel</button>
 
           </div>

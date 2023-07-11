@@ -35,7 +35,7 @@ class Education extends Component {
     });
   }
 
-  handleAddSchoolSubmit = () => {
+  handleAddSchoolFormSubmit = () => {
     this.setState({
       educationEntries: this.state.educationEntries.concat(this.state.educationEntry),
       educationEntry: {
@@ -52,7 +52,7 @@ class Education extends Component {
     });
   };
 
-  handleCancelAddSchool = () => {
+  handleSchoolFormCancel = () => {
     this.setState({
       educationEntries: this.state.educationEntries,
       educationEntry: {
@@ -69,16 +69,16 @@ class Education extends Component {
     });
   };
 
-  handleDelete = (e) => {
+  handleDeleteSchool = (e) => {
     const thisSchoolID = e.target.dataset.schoolid;
     console.log(thisSchoolID);
     this.setState( { 
       ...this.state,
-      educationEntries: this.state.educationEntries.filter((el) => el.schoolID !== thisSchoolID),
+      educationEntries: this.state.educationEntries.filter((el) => el.schoolID !== e.target.dataset.schoolid),
     });
   };
 
-  handleEditSchoolBtn = (e) => {
+  handleEditSchoolClick = (e) => {
     const thisSchoolID = e.target.dataset.schoolid;
     console.log(`you clicked edit button next to school ${thisSchoolID}`)
     const theschool = this.state.educationEntries.find((el) => el.schoolID === thisSchoolID)
@@ -98,7 +98,7 @@ class Education extends Component {
     });
   }
 
-  handleEditSchoolSubmit = (e) => {
+  handleEditSchoolFormSubmit = (e) => {
     const thisSchoolID = e.target.dataset.schoolid;
 
     this.setState({ 
@@ -118,7 +118,7 @@ class Education extends Component {
     });
   }
 
-  handleAddClick = () => {
+  handleAddSchoolClick = () => {
     console.log('add school was clicked');
     this.setState({
       ...this.state,
@@ -141,11 +141,14 @@ class Education extends Component {
                 educationEntry = { this.state.educationEntry }
                 educationEntries = { this.state.educationEntries }
                 handleChange={this.handleChange}
-                handleAddSchoolSubmit={this.handleAddSchoolSubmit}
-                handleEditSchoolSubmit={this.handleEditSchoolSubmit}
-                handleCancelAddSchool={this.handleCancelAddSchool}
+                handleAddSchoolFormSubmit={this.handleAddSchoolFormSubmit}
+                handleEditSchoolFormSubmit={this.handleEditSchoolFormSubmit}
+                handleSchoolFormCancel={this.handleSchoolFormCancel}
                 formview={this.state.formview}
                 schooltoedit={this.state.schooltoedit}
+                // dont show below once you figure out how to not render those buttons
+                handleDeleteSchool = { this.handleDeleteSchool }
+                handleEditSchoolClick = {this.handleEditSchoolClick}
               />
             </>
           ) : 
@@ -155,14 +158,14 @@ class Education extends Component {
             <EducationDisplay 
               educationEntries = { this.state.educationEntries }
               educationEntry = { this.state.educationEntry }
-              handleDelete = { this.handleDelete }
+              handleDeleteSchool = { this.handleDeleteSchool }
               schooltoedit = { this.state.schooltoedit}
               handleChange = {this.handleChange}
-              handleEditSchoolBtn = {this.handleEditSchoolBtn}
+              handleEditSchoolClick = {this.handleEditSchoolClick}
             />
             <AddBtn 
                 text='School'
-                clickHandler={this.handleAddClick}
+                clickHandler={this.handleAddSchoolClick}
               />
         </div>
           ) 
