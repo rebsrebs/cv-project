@@ -12,7 +12,7 @@ class ExperienceDisplay extends Component {
       <>
         <div className = 'section'>
         {
-          this.props.workEntries.map((job) => {
+          this.props.jobEntries.map((job) => {
             return (
               <div className="entryrow" key={job.jobID}>
               <div className="entry job">
@@ -34,7 +34,7 @@ class ExperienceDisplay extends Component {
               </div>
             
             <div className = "entrybtns">
-              <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDelete} className="deleteBtn entryBtn" data-jobid={job.jobID}/>
+              <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDeleteJob} className="deleteBtn entryBtn" data-jobid={job.jobID}/>
 
               <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditJobClick}
               className="editBtn entryBtn" data-jobid={job.jobID}/>
@@ -44,12 +44,12 @@ class ExperienceDisplay extends Component {
             } 
       
         <ExperienceForm 
-          workEntry = {this.props.workEntry}
+          jobEntry = {this.props.jobEntry}
           handleChange = {this.props.handleChange}
           formtype = {this.props.formtype}
           mode = {this.props.mode}
-          handleAddJobSubmit = {this.props.handleAddJobSubmit}
-          handleCancelAddJob = {this.props.handleCancelAddJob}
+          handleAddJobFormSubmit = {this.props.handleAddJobFormSubmit}
+          handleJobFormCancel = {this.props.handleJobFormCancel}
         />
       
         </div>

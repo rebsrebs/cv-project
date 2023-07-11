@@ -6,7 +6,7 @@ class ExperienceForm extends Component {
 
   render() {
 
-    const { startYear, endYear, company, location, title, duties, jobID } = this.props.workEntry;
+    const { startYear, endYear, company, location, title, duties, jobID } = this.props.jobEntry;
 
     return (
       this.props.mode === 'display' ? (
@@ -36,11 +36,11 @@ class ExperienceForm extends Component {
             <div className="buttons">
             <button 
             type="button"
-            onClick={this.props.handleAddJobSubmit}
+            onClick={this.props.handleAddJobFormSubmit}
             >Save</button>
             <button
             type="button"
-            onClick={this.props.handleCancelAddJob}
+            onClick={this.props.handleJobFormCancel}
             >Cancel</button>
             </div>
               
@@ -70,12 +70,12 @@ class ExperienceForm extends Component {
               <div className="buttons">
               <button 
               type="button"
-              onClick={this.props.handleEditJobSubmit}
+              onClick={this.props.handleEditJobFormSubmit}
               data-jobid={jobID}
               >Save Edits</button>
               <button
               type="button"
-              onClick={this.props.handleCancelAddJob}
+              onClick={this.props.handleJobFormCancel}
               >Cancel</button>
             </div> 
           </form>

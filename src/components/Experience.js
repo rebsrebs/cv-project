@@ -10,7 +10,7 @@ class Experience extends Component {
   constructor() {
     super();
     this.state = {
-        workEntry: {
+        jobEntry: {
           startYear: '',
           endYear: '',
           company: '',
@@ -19,9 +19,9 @@ class Experience extends Component {
           duties: '',
           jobID: uniqid(),
         },
-        workEntries: [],
+        jobEntries: [],
         mode: 'display',
-        formview: null,
+        formtype: null,
         jobtoedit: null,
       }
     }
@@ -31,23 +31,23 @@ class Experience extends Component {
     this.setState({
       ...this.state,
       mode: 'form',
-      formview: 'add',
+      formtype: 'add',
     });
   }
 
-  handleDelete = (e) => {
+  handleDeleteJob = (e) => {
     this.setState({
       ...this.state,
-      workEntries: this.state.workEntries.filter((job) => job.jobID !== e.target.dataset.jobid ),
+      jobEntries: this.state.jobEntries.filter((job) => job.jobID !== e.target.dataset.jobid ),
     });
   }
 
-  handleCancelAddJob = () => {
+  handleJobFormCancel = () => {
     console.log('you clicked cancel add job')
     this.setState({
       ...this.state,
       mode: 'display',
-      formview: null,
+      formtype: null,
       jobtoedit: null,
     });
   }
@@ -56,11 +56,11 @@ class Experience extends Component {
     console.log(`you clicked edit job ${e.target.value}`);
   }
 
-  handleAddJobSubmit = () => {
+  handleAddJobFormSubmit = () => {
     console.log(`you clicked submit added job`);
     this.setState({
-      workEntries: this.state.workEntries.concat(this.state.workEntry),
-      workEntry: {
+      jobEntries: this.state.jobEntries.concat(this.state.jobEntry),
+      jobEntry: {
         startYear: '',
         endYear: '',
         company: '',
@@ -70,7 +70,7 @@ class Experience extends Component {
         jobID: uniqid(),
       },
       mode: 'display',
-      formview: null,
+      formtype: null,
       jobtoedit: null,
     });
   }
@@ -78,8 +78,8 @@ class Experience extends Component {
   handleChange = (e) => {
     this.setState(previousState => {
       return {
-        ...previousState, workEntry: {
-          ...this.state.workEntry, [e.target.name]: e.target.value
+        ...previousState, jobEntry: {
+          ...this.state.jobEntry, [e.target.name]: e.target.value
         }
       };
     });
@@ -96,16 +96,17 @@ class Experience extends Component {
         />
 
         <ExperienceDisplay 
-          workEntries = { this.state.workEntries }
-          workEntry = { this.state.workEntry }
+          jobEntries = { this.state.jobEntries }
+          jobEntry = { this.state.jobEntry }
           mode = { this.state.mode }
-          formview = {this.state.formview}
+          formtype = {this.state.formtype}
           jobtoedit = {this.state.jobtoedit}
           handleChange = {this.handleChange }
-          handleCancelAddJob = {this.handleCancelAddJob}
-          handleDelete = { this.handleDelete }
+          handleJobFormCancel = {this.handleJobFormCancel}
+          handleDelete = { this.handleDeleteJob }
           handleEditJobClick = { this.handleEditJobClick }
-          handleAddJobSubmit = {this.handleAddJobSubmit}
+          handleAddJobFormSubmit = {this.handleAddJobFormSubmit}
+          handleEditJobFormSubmit = {this.handleEditJobFormSubmit}
         />
 
         <AddBtn 
