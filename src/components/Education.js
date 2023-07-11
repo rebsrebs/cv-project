@@ -4,7 +4,6 @@ import uniqid from 'uniqid';
 import SectionHeader from "./SectionHeader";
 import EducationDisplay from "./EducationDisplay";
 import AddBtn from "./AddBtn";
-import EducationForm from "./EducationForm";
 
 class Education extends Component {
 
@@ -139,17 +138,14 @@ class Education extends Component {
           this.state.mode === 'form' ? (
             <>
               <EducationDisplay 
+                educationEntry = { this.state.educationEntry }
                 educationEntries = { this.state.educationEntries }
-              />
-              <EducationForm
                 handleChange={this.handleChange}
                 handleAddSchoolSubmit={this.handleAddSchoolSubmit}
                 handleEditSchoolSubmit={this.handleEditSchoolSubmit}
                 handleCancelAddSchool={this.handleCancelAddSchool}
                 formview={this.state.formview}
                 schooltoedit={this.state.schooltoedit}
-                educationEntries = {this.state.educationEntries}
-                educationEntry = { this.state.educationEntry }
               />
             </>
           ) : 
