@@ -50,6 +50,7 @@ class ExperienceDisplay extends Component {
           mode = {this.props.mode}
           handleAddJobFormSubmit = {this.props.handleAddJobFormSubmit}
           handleJobFormCancel = {this.props.handleJobFormCancel}
+          handleEditJobFormSubmit = {this.props.handleEditJobFormSubmit}
         />
       
         </div>

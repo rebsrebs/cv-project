@@ -53,7 +53,24 @@ class Experience extends Component {
   }
 
   handleEditJobClick = (e) => {
-    console.log(`you clicked edit job ${e.target.value}`);
+    const thisJobID = e.target.dataset.jobid;
+    console.log(`you clicked edit button next to job ${thisJobID}`)
+    const thejob = this.state.jobEntries.find((el) => el.jobID === thisJobID)
+    this.setState({
+      ...this.state,
+      jobEntry: {
+        startYear: thejob.startYear,
+        endYear: thejob.endYear,
+        company: thejob.company,
+        location: thejob.location,
+        title: thejob.title,
+        duties: thejob.duties,
+        jobID: thejob.jobID,
+      },
+      mode: 'form',
+      formtype: 'edit',
+      jobtoedit: thisJobID,
+    });
   }
 
   handleAddJobFormSubmit = () => {
@@ -63,6 +80,27 @@ class Experience extends Component {
       jobEntry: {
         startYear: '',
         endYear: '',
+        company: '',
+        location: '',
+        title: '',
+        duties: '',
+        jobID: uniqid(),
+      },
+      mode: 'display',
+      formtype: null,
+      jobtoedit: null,
+    });
+  }
+
+  handleEditJobFormSubmit = (e) => {
+    const thisJobID = e.target.dataset.jobid;
+
+    this.setState({ 
+      ...this.state,
+      jobEntries: this.state.jobEntries.filter((el) => el.jobID !== thisJobID).concat(this.state.jobEntry),
+      jobEntry: {
+        startYear: '',
+        editYear: '',
         company: '',
         location: '',
         title: '',
@@ -103,7 +141,7 @@ class Experience extends Component {
           jobtoedit = {this.state.jobtoedit}
           handleChange = {this.handleChange }
           handleJobFormCancel = {this.handleJobFormCancel}
-          handleDelete = { this.handleDeleteJob }
+          handleDeleteJob = { this.handleDeleteJob }
           handleEditJobClick = { this.handleEditJobClick }
           handleAddJobFormSubmit = {this.handleAddJobFormSubmit}
           handleEditJobFormSubmit = {this.handleEditJobFormSubmit}
