@@ -15,6 +15,13 @@
   grid-template-rows: 2em 2em auto;
 }
 
+.skillseditbtn {
+  margin-left: 15px;
+  border-radius:50%;
+  height: 19px;
+  vertical-align:middle;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -23,3 +30,23 @@
 input {
   padding-left: 5px;
 }
+
+.skills--button-round {
+  margin-left: 15px;
+  border-radius:50%;
+  height: 19px;
+  vertical-align:middle;
+}
+
+.skills--button-round:hover {
+  background-color: var(--btn-hover);
+}
+
+.skills--button-round:active {
+  background-color: var(--btn-active);
+}
+
+li {
+  list-style: none;
+}
+

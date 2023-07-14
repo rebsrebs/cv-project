@@ -162,10 +162,12 @@ class Education extends Component {
               schooltoedit = { this.state.schooltoedit}
               handleChange = {this.handleChange}
               handleEditSchoolClick = {this.handleEditSchoolClick}
+              mainmode = {this.props.mainmode}
             />
             <AddBtn 
                 text='School'
                 clickHandler={this.handleAddSchoolClick}
+                mainmode={this.props.mainmode}
               />
         </div>
           ) 

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import '../styles/Education.css';
-import deleteBtn from '../images/delete_g.svg';
-import editBtn from '../images/edit_g.svg';
+import deleteBtn from "../images/delete_g.svg"
+import editBtn from "../images/edit_g.svg"
+// import DeleteBtn from "./DeleteBtn";
+// import EditBtn from "./EditBtn";
 import EducationSample from "./EducationSample";
 import EducationAddForm from "./EducationAddForm";
 import EducationEditForm from "./EducationEditForm";
@@ -9,7 +11,6 @@ import EducationEditForm from "./EducationEditForm";
 class EducationDisplay extends Component {
 
   render() {
-    console.log(this.props.schooltoedit);
     return (
       
       <>
@@ -41,11 +42,44 @@ class EducationDisplay extends Component {
                     </span>
                   </div>
 
-                  <div className = "entrybtns">
-                    <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDeleteSchool} className="deleteBtn entryBtn" data-schoolid={school.schoolID}/>
-                    <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditSchoolClick}
-                    className="editBtn entryBtn" data-schoolid={school.schoolID}/>
-                  </div>
+                  
+                    {/* <DeleteBtn 
+                      onClick={this.props.handleDeleteSchool}
+                      data-schoolid={school.schoolID}
+                      mainmode={this.props.mainmode}
+                    />
+                    <EditBtn 
+                      onClick={this.props.handleEditSchoolClick}
+                      data-schoolid={school.schoolID}
+                      mainmode={this.props.mainmode}
+                    /> */}
+
+
+                    
+                  {this.props.mainmode === 'edit' ? (
+                    <div className = "entrybtns">
+                    <img 
+                      src={deleteBtn} 
+                      alt="delete" 
+                      role="button" 
+                      width="22px" 
+                      onClick={this.props.handleDeleteSchool} 
+                      className="deleteBtn entryBtn" 
+                      data-schoolid={school.schoolID}
+                    />
+                    <img 
+                      src={editBtn} 
+                      alt="edit" 
+                      role="button" 
+                      width="22px" 
+                      onClick={this.props.handleEditSchoolClick}
+                      className="editBtn entryBtn" 
+                      data-schoolid={school.schoolID} 
+                    />
+                    </div>
+                    ):(null)}
+                  
+
                 </div> //end entry row
                 : 
                 <EducationEditForm 

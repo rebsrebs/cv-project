@@ -1,0 +1,25 @@
+button.addBtn {
+  border-style: none;
+  box-shadow: none;
+  font-size: 14px;
+  text-decoration: underline;
+  margin: 10px 0 0 0;
+  padding: 0px;
+  line-height: 20px;
+}
+
+.button-round {
+  margin-left: 15px;
+  border-radius:50%;
+  height: 19px;
+  vertical-align:middle;
+  padding: 5px;
+}
+
+.button-round:hover {
+  background-color: var(--btn-hover);
+}
+
+.button-round:active {
+  background-color: var(--btn-active);
+}

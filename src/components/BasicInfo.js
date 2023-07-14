@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import editBtn from '../images/edit_g.svg';
+import EditBtn from "./EditBtn";
 import '../styles/BasicInfo.css';
 
 class BasicInfo extends Component {
@@ -84,11 +84,8 @@ class BasicInfo extends Component {
               </div>
 
               <div className="basicinfobtnwrapper">
-                <img src={editBtn} 
-                  role="button"
-                  alt="edit" 
-                  width="22px" 
-                  className = "Btn basicinfobtn"
+                <EditBtn 
+                  mainmode={ this.props.mainmode }
                   onClick={ this.handleEditBasicInfoClick }
                 />
               </div>

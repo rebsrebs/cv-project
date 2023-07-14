@@ -33,12 +33,16 @@ class ExperienceDisplay extends Component {
                 </p>
               </div>
             
-            <div className = "entrybtns">
+            {this.props.mainmode === 'print' ? (null):(
+              <div className = "entrybtns">
               <img src={deleteBtn} alt="delete" role="button" width="22px" onClick={this.props.handleDeleteJob} className="deleteBtn entryBtn" data-jobid={job.jobID}/>
 
               <img src={editBtn} alt="edit" role="button" width="22px" onClick={this.props.handleEditJobClick}
               className="editBtn entryBtn" data-jobid={job.jobID}/>
             </div>
+            )}
+
+            
             </div> 
             )})
             } 

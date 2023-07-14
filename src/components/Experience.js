@@ -145,11 +145,13 @@ class Experience extends Component {
           handleEditJobClick = { this.handleEditJobClick }
           handleAddJobFormSubmit = {this.handleAddJobFormSubmit}
           handleEditJobFormSubmit = {this.handleEditJobFormSubmit}
+          mainmode = { this.props.mainmode }
         />
 
         <AddBtn 
           text="Experience"
           clickHandler={this.handleAddExperienceClick}
+          mainmode={this.props.mainmode}
         />
 
       </div>

@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 import SectionHeader from "./SectionHeader";
 import '../styles/Skills.css';
 import AddBtn from "./AddBtn";
+import EditBtn from "../images/edit_g.svg"
 
 class Skills extends Component {
 
@@ -76,28 +77,54 @@ handleEditSkillSetClick = () => {
       { // DISPLAY MODE
       
         this.state.mode === 'display' ? (
+
           <div className='section'>
+
             <ul className="skillList">
-            {this.state.skillSet.map((skill, idx) => {
-              // if last entry, don't put comma at end
-              if (idx === this.state.skillSet.length - 1) {
-                return <span key={skill.skillID} className="skill">
-                  {skill.skillName}.
-                </span>
-              }
-              return <span key={skill.skillID} className="skill">
-                  {skill.skillName},&nbsp;
-              </span>
-            })}
+
+              {this.state.skillSet.map((skill, idx) => {
+                // if last entry, don't put comma at end
+                if (idx === this.state.skillSet.length - 1) {
+                  return (
+                    <span
+                      key={skill.skillID} 
+                      className="skill">
+                      {skill.skillName}.
+
+                      {
+                        this.props.mainmode === 'edit' && this.state.skillSet.length > 0 ? (
+                            <img
+                              src={EditBtn} 
+                              alt="Edit" 
+                              className="button skills--button-round"
+                            />) : (null)
+                      }
+                    </span>
+                  )
+                }
+
+                return (
+                  <span 
+                    key={skill.skillID} 
+                    className="skill">
+                    {skill.skillName},&nbsp;
+                  </span>
+                )
+              })
+            }
           </ul>
+
+
+          
           <AddBtn 
             text = 'Skill'
             clickHandler={this.handleAddClick}
+            mainmode={this.props.mainmode}
           />
           </div>
 
         ) : (
-          // EDIT MODE
+          // Add Skill
           <>
             <form action="" className="skillform">
               <h3>Add Skill</h3>

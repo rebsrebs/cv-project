@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import '../styles/AddBtn.css';
+import '../styles/Buttons.css';
 
 class AddBtn extends Component {
 
   render() {
     return (
+
+      <>
+      { this.props.mainmode === 'print' ? (null):(
+
       <button
         className="addBtn"
         type="button"
@@ -12,6 +16,8 @@ class AddBtn extends Component {
       >
         + Add {this.props.text}
       </button>
+      )}
+      </>
     )
   }
 
