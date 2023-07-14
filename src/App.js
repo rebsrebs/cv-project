@@ -4,28 +4,27 @@ import BasicInfo from './components/BasicInfo';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Skills from './components/Skills';
-import { setProperty } from './helpers';
 
 class App extends Component {
   constructor() {
     super();
     this.state = { 
-      mode: 'display',
+      mainmode: 'edit',
     }
   }
 
-  handleEdit = (section) => {
-    console.log(`You clicked the edit button for ${section} `)
-    const newState = Object.assign({}, this.state);
-    
-    this.setState(setProperty(newState, `${section}.mode`, 'edit'));
+  handleEditBtnClick = () => {
+    console.log('you clicked edit button');
+    this.setState({
+      mainmode: 'edit',
+    });
   }
 
-  handleSave = (section) => {
-    console.log(`You clicked the save button for ${section} `)
-    const newState = Object.assign({}, this.state);
-    
-    this.setState(setProperty(newState, `${section}.mode`, 'display'));
+  handlePrintBtnClick = () => {
+    console.log('you clicked print button');
+    this.setState({
+      mainmode: 'print',
+    });
   }
 
   render(){
@@ -34,23 +33,38 @@ class App extends Component {
 
         <h1>Resume Builder</h1>
         <div className="outerbuttons">
-          <button>Edit</button>
-          <button>Print</button>
+          <button
+            type="button"
+            onClick={this.handleEditBtnClick}
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={this.handlePrintBtnClick}
+          >
+            Print
+          </button>
         </div>
 
         <div id="resumewrapper">
 
-          <BasicInfo />
+          <BasicInfo 
+            mainmode = {this.state.mainmode}
+          />
 
           <Education 
+            mainmode = {this.state.mainmode}
           />
           <div className="spacer"></div>
 
           <Experience
+            mainmode = {this.state.mainmode}
           /> 
           <div className="spacer"></div>
 
           <Skills 
+            mainmode = {this.state.mainmode}
           />
           <div className="spacer"></div>
 
