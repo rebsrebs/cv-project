@@ -1,3 +1,5 @@
+This is the CV App Assignment from The Odin Project. Below are the instructions:
+
 You should use class components for this project. You’re going to find a lot of code written using class components and this practical experience will help you understand it when encountered. You’ll also revisit this project in a later lesson to replace the class components with functional ones.
 Think about how to structure your application into components. Your application should include:
 A section to add general information like name, email, phone number.
