@@ -75,7 +75,7 @@ class BasicInfo extends Component {
                 <p className='email basicinfoentry'>{ this.state.email }</p>
               </div>
 
-              <div class="basicinfobtnwrapper">
+              <div className="basicinfobtnwrapper">
                 <img src={editBtn} 
                   role="button"
                   alt="edit" 
