@@ -27,6 +27,14 @@ class BasicInfo extends Component {
     });
   }
 
+  handleEditBasicInfoFormCancel = () => {
+    this.setState(previousState => {
+      return {
+        ...previousState, mode: 'display',
+      };
+    });
+  }
+
   handleEditBasicInfoClick = () => {
     console.log(`you clicked edit basic info`)
     // when I click this again it should save the new state
@@ -102,6 +110,9 @@ class BasicInfo extends Component {
                 <input onChange={this.handleChange} type="text" id="email" name="email" placeholder={this.state.email} className="email"/>
                 <input onChange={this.handleChange} type="text" id="phone" name="phone" placeholder={this.state.phone} className="phone"/>
 
+                <div className="buttons">
+
+                
                 <button 
                 type="button"
                 className = "Btn basicinfobtn"
@@ -109,6 +120,15 @@ class BasicInfo extends Component {
                 >
                   Save
                 </button>
+
+                <button 
+                type="button"
+                className = "Btn basicinfobtn"
+                onClick={this.handleEditBasicInfoFormCancel}
+                >
+                  Cancel
+                </button>
+                </div>
 
               </form>          
 
