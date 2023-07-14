@@ -33,6 +33,10 @@ class App extends Component {
       <div id="appwrapper">
 
         <h1>Resume Builder</h1>
+        <div className="outerbuttons">
+          <button>Edit</button>
+          <button>Print</button>
+        </div>
 
         <div id="resumewrapper">
 
