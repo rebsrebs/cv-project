@@ -69,17 +69,17 @@ class Education extends Component {
     });
   };
 
-  handleDeleteSchool = (e) => {
-    const thisSchoolID = e.target.dataset.schoolid;
+  handleDeleteSchool = (thisSchoolID) => {
+    // const thisSchoolID = e.target.dataset.schoolid;
     console.log(thisSchoolID);
     this.setState( { 
       ...this.state,
-      educationEntries: this.state.educationEntries.filter((el) => el.schoolID !== e.target.dataset.schoolid),
+      educationEntries: this.state.educationEntries.filter((el) => el.schoolID !== thisSchoolID),
     });
   };
 
-  handleEditSchoolClick = (e) => {
-    const thisSchoolID = e.target.dataset.schoolid;
+  handleEditSchoolClick = (thisSchoolID) => {
+    // const thisSchoolID = e.target.dataset.schoolid;
     console.log(`you clicked edit button next to school ${thisSchoolID}`)
     const theschool = this.state.educationEntries.find((el) => el.schoolID === thisSchoolID)
     this.setState({

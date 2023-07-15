@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import '../styles/Education.css';
-import deleteBtn from "../images/delete_g.svg"
-import editBtn from "../images/edit_g.svg"
-// import DeleteBtn from "./DeleteBtn";
-// import EditBtn from "./EditBtn";
+// import deleteBtn from "../images/delete_g.svg"
+// import editBtn from "../images/edit_g.svg"
+import DeleteBtn from "./DeleteBtn";
+import EditBtn from "./EditBtn";
 import EducationSample from "./EducationSample";
 import EducationAddForm from "./EducationAddForm";
 import EducationEditForm from "./EducationEditForm";
@@ -43,21 +43,27 @@ class EducationDisplay extends Component {
                   </div>
 
                   
-                    {/* <DeleteBtn 
-                      onClick={this.props.handleDeleteSchool}
-                      data-schoolid={school.schoolID}
-                      mainmode={this.props.mainmode}
-                    />
-                    <EditBtn 
-                      onClick={this.props.handleEditSchoolClick}
-                      data-schoolid={school.schoolID}
-                      mainmode={this.props.mainmode}
-                    /> */}
+                    
 
 
                     
                   {this.props.mainmode === 'edit' ? (
+
+                    
+
                     <div className = "entrybtns">
+
+                    <DeleteBtn 
+                      onClick={ () => this.props.handleDeleteSchool(school.schoolID)}
+                      mainmode={this.props.mainmode}
+                    />
+                    <EditBtn 
+                      onClick = { () => this.props.handleEditSchoolClick(school.schoolID)}
+                      mainmode={this.props.mainmode}
+                    />
+
+
+                  {/* 
                     <img 
                       src={deleteBtn} 
                       alt="delete" 
@@ -75,7 +81,10 @@ class EducationDisplay extends Component {
                       onClick={this.props.handleEditSchoolClick}
                       className="editBtn entryBtn" 
                       data-schoolid={school.schoolID} 
-                    />
+                    /> */}
+
+
+
                     </div>
                     ):(null)}
                   
