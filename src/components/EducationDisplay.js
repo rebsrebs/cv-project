@@ -96,7 +96,7 @@ class EducationDisplay extends Component {
                   educationEntry = { this.props.educationEntry }
                   formtype = {this.props.formtype}
                   handleEditSchoolFormSubmit = {this.props.handleEditSchoolFormSubmit}
-                  handlehandleSchoolFormCancel = {this.props.handleSchoolFormCancel}
+                  handleSchoolFormCancel = {this.props.handleSchoolFormCancel}
                   key={school.schoolID}
                 />
             }) : <EducationSample />
