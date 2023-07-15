@@ -4,6 +4,7 @@ import SectionHeader from "./SectionHeader";
 import '../styles/Skills.css';
 import AddBtn from "./AddBtn";
 import EditBtn from "../images/edit_g.svg"
+import SkillsForm from "./SkillsForm";
 
 class Skills extends Component {
 
@@ -16,6 +17,7 @@ class Skills extends Component {
         },
         skillSet: [],
         mode: 'display', 
+        formtype: null,
     }
   }
 
@@ -31,13 +33,25 @@ handleChange = (e) => {
   });
 }
 
-handleAddClick = () => {
+handleAddSkillClick = () => {
   console.log('add skill was clicked');
   this.setState({
     ...this.state,
     mode: 'form',
+    formtype: 'add',
   });
 }
+
+handleEditSkillSetClick = () => {
+  console.log('edit skills was clicked');
+  this.setState({
+    ...this.state,
+    mode: 'form',
+    formtype: 'edit',
+  });
+}
+
+
 
 handleCancelAddSkill = () => {
   this.setState({
@@ -52,6 +66,8 @@ handleCancelAddSkill = () => {
 
 handleSubmitAddSkill = () => {
   console.log(`handleSubmitAddSkill running and this.state.skillEntry.skillName is ${this.state.skillEntry.skillName}`)
+
+  if (this.state.skillEntry.skillName !== '') {
   this.setState({
     skillSet: this.state.skillSet.concat(this.state.skillEntry),
     skillEntry: {
@@ -60,11 +76,24 @@ handleSubmitAddSkill = () => {
     },
     mode: 'display',
   })
+} else {
+  this.setState({
+    ...this.state,
+    mode: 'display',
+  });
+}
 }
 
-handleEditSkillSetClick = () => {
-  console.log('you clicked the edit skill set button')
-}
+handleDeleteSkill = (thisSkillID) => {
+  console.log('you clicked delete skill for:')
+  console.log(thisSkillID)
+  this.setState( { 
+    ...this.state,
+    skillSet: this.state.skillSet.filter((el) => el.skillID !== thisSkillID),
+    mode: 'display',
+    formtype: null,
+  });
+};
 
   render() {
 
@@ -94,6 +123,7 @@ handleEditSkillSetClick = () => {
                       {
                         this.props.mainmode === 'edit' && this.state.skillSet.length > 0 ? (
                             <img
+                              onClick={this.handleEditSkillSetClick}
                               src={EditBtn} 
                               alt="Edit" 
                               className="button skills--button-round"
@@ -118,7 +148,7 @@ handleEditSkillSetClick = () => {
           
           <AddBtn 
             text = 'Skill'
-            clickHandler={this.handleAddClick}
+            clickHandler={this.handleAddSkillClick}
             mainmode={this.props.mainmode}
           />
           </div>
@@ -126,15 +156,16 @@ handleEditSkillSetClick = () => {
         ) : (
           // Add Skill
           <>
-            <form action="" className="skillform">
-              <h3>Add Skill</h3>
-              <label htmlFor="skillName" className="left">Skill</label>
-              <input type="text" name="skillName" className="right" onChange={ this.handleChange } placeholder="e.g. typing or Microsoft Word"/>
-              <div className="buttons">
-                <button type="button" onClick = { this.handleSubmitAddSkill }>Save</button>
-                <button type="button" onClick = { this.handleCancelAddSkill }>Cancel</button>
-              </div>
-            </form>
+            <SkillsForm 
+              mode = {this.state.mode}
+              formtype = {this.state.formtype}
+              skillSet = {this.state.skillSet}
+              handleChange = {this.handleChange}
+              handleSubmitAddSkill = {this.handleSubmitAddSkill}
+              handleCancelAddSkill = {this.handleCancelAddSkill}
+              handleDeleteSkill = { this.handleDeleteSkill }
+              
+            />
           </>
         )
       }
