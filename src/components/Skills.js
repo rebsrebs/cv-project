@@ -90,7 +90,7 @@ handleDeleteSkill = (thisSkillID) => {
   this.setState( { 
     ...this.state,
     skillSet: this.state.skillSet.filter((el) => el.skillID !== thisSkillID),
-    mode: 'display',
+    mode: 'edit',
     formtype: null,
   });
 };
