@@ -22,7 +22,9 @@ class SkillsForm extends Component {
         <form action="" className="skillform">
               <h3>Add Skill</h3>
               <label htmlFor="skillName" className="left">Skill</label>
+
               <input type="text" name="skillName" className="right" onChange={ this.props.handleChange } placeholder="e.g. typing or Microsoft Word"/>
+
               <div className="buttons">
                 <button type="button" onClick = { this.props.handleSubmitAddSkill }>Save</button>
                 <button type="button" onClick = { this.props.handleCancelAddSkill }>Cancel</button>
@@ -43,7 +45,10 @@ class SkillsForm extends Component {
             
             { this.props.skillSet.filter((skill) => !this.props.skillsToDelete.find((el) => el.skillID === skill.skillID)).map((skill, idx) => {return (
               <React.Fragment key={idx}>
-                <input placeholder={skill.skillID} onChange={ this.props.handleChange }/>
+
+                <input 
+                  placeholder={skill.skillName} 
+                  onChange={ (e) => this.props.handleChangeEditForm(e, skill.skillID) }/>
 
                 <DeleteBtn 
                   onClick = { () => this.props.handleTempDelete(skill)}
@@ -53,7 +58,8 @@ class SkillsForm extends Component {
             )})}
 
             <div className="buttons">
-              <button type="button">Save</button>
+              <button type="button"
+              onClick={this.props.handleSubmitEditSkills}>Save</button>
               <button type="button"
               onClick={this.props.handleCancelAddSkill}>Cancel</button>
             </div>

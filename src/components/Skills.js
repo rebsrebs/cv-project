@@ -34,6 +34,16 @@ handleChange = (e) => {
   });
 }
 
+handleChangeEditForm = (e, theID) => {
+  this.setState(previousState => {
+    return {
+      ...previousState, skillSet: 
+        this.state.skillSet.map((skill) => skill.skillID === theID ? {...skill, skillName: e.target.value } : skill)
+    };
+  });
+  
+}
+
 handleAddSkillClick = () => {
   console.log('add skill was clicked');
   this.setState({
@@ -56,8 +66,7 @@ handleSubmitEditSkills = () => {
   console.log('you clicked saved changes');
   this.setState({
     ...this.state,
-    skillsSet: this.state.skillSet.filter((skill) => !this.state.skillsToDelete.find((el) => el.id !== skill.id)),
-    skillsToDelete: [],
+    skillsSet: this.state.skillSet.filter((skill) => !this.state.skillsToDelete.find((el) => el.skillID === skill.skillID)),
     mode: 'display',
     formtype: null,
   });
@@ -196,6 +205,7 @@ handleDeleteSkill = (thisSkillID) => {
               skillSet = {this.state.skillSet}
               skillsToDelete = {this.state.skillsToDelete}
               handleChange = {this.handleChange}
+              handleChangeEditForm = {this.handleChangeEditForm}
               handleSubmitAddSkill = {this.handleSubmitAddSkill}
               handleSubmitEditSkills = {this.handleSubmitEditSkills}
               handleCancelAddSkill = {this.handleCancelAddSkill}
