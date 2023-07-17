@@ -5,7 +5,14 @@ import DeleteBtn from "./DeleteBtn";
 
 class SkillsForm extends Component {
 
+  
+
   render() {
+
+    console.log('skillsToDelete')
+    console.log(this.props.skillsToDelete)
+    console.log('skillSet')
+    console.log(this.props.skillSet)
 
     return (
       this.props.mode === 'display' ? (
@@ -27,13 +34,22 @@ class SkillsForm extends Component {
 
             <h3>Edit Skills</h3>
 
-            { this.props.skillSet.map((skill, idx) => {
+            {/* { this.props.skillSet.map((skill, idx) => {
               return (<>
               <input key={idx} placeholder={skill.skillName} onChange={ this.props.handleChange }/>
               <DeleteBtn 
                 onClick = { () => this.props.handleDeleteSkill(skill.skillID)}
-              />
-              </>
+              /> */}
+            
+            { this.props.skillSet.filter((skill) => !this.props.skillsToDelete.find((el) => el.skillID === skill.skillID)).map((skill, idx) => {return (
+              <React.Fragment key={idx}>
+                <input placeholder={skill.skillID} onChange={ this.props.handleChange }/>
+
+                <DeleteBtn 
+                  onClick = { () => this.props.handleTempDelete(skill)}
+                />
+
+              </React.Fragment>
             )})}
 
             <div className="buttons">
