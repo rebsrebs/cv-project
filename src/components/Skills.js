@@ -66,7 +66,7 @@ handleSubmitEditSkills = () => {
   console.log('you clicked saved changes');
   this.setState({
     ...this.state,
-    skillsSet: this.state.skillSet.filter((skill) => !this.state.skillsToDelete.find((el) => el.skillID === skill.skillID)),
+    skillSet: this.state.skillSet.filter((el) => !this.state.skillsToDelete.find((el2) => el2.skillID === el.skillID)),
     mode: 'display',
     formtype: null,
   });
@@ -121,22 +121,6 @@ handleTempDelete = (skill) => {
   });
   console.log(this.state.skillsToDelete[0])
 }
-
-handleDeleteSkill = (thisSkillID) => {
-  console.log('you clicked delete skill for:')
-  console.log(thisSkillID)
-  console.log('is this.state.skillSet an array?')
-  console.log(Array.isArray(this.state.skillSet))
-  console.log('is this.state.skillsToDelete an array?')
-  console.log(Array.isArray(this.state.skillsToDelete))
-  this.setState( { 
-    ...this.state,
-    skillSet: this.state.skillSet.filter((el) => el.skillID !== thisSkillID),
-    skillsToDelete: [],
-    mode: 'edit',
-    formtype: null,
-  });
-};
 
   render() {
 
@@ -209,7 +193,6 @@ handleDeleteSkill = (thisSkillID) => {
               handleSubmitAddSkill = {this.handleSubmitAddSkill}
               handleSubmitEditSkills = {this.handleSubmitEditSkills}
               handleCancelAddSkill = {this.handleCancelAddSkill}
-              handleDeleteSkill = { this.handleDeleteSkill }
               handleTempDelete = { this.handleTempDelete }
               
             />
