@@ -16,22 +16,22 @@ class ExperienceForm extends Component {
         <form action="" className="experienceform">
           <h3>Add Experience</h3>
             <label htmlFor="startYear" className="left">Start Year</label>
-            <input onChange={this.props.handleChange} className="right" type="text" name="startYear" id="startYear"/>
+            <input onChange={this.props.handleChange} className="right" type="text" name="startYear" id="startYear" placeholder="Start Year"/>
 
             <label htmlFor="endYear" className="left">End Year</label>
-            <input onChange={this.props.handleChange} className="right" type="text" name="endYear" id="endYear"/>
+            <input onChange={this.props.handleChange} className="right" type="text" name="endYear" id="endYear" placeholder="End Year (optional)"/>
             
             <label htmlFor="company" className="left">Company</label>
-            <input onChange={this.props.handleChange} className="right" type="text" name="company" placeholder="company name"/>
+            <input onChange={this.props.handleChange} className="right" type="text" name="company" placeholder="Company"/>
 
             <label htmlFor="location" className="left">Location</label>
             <input onChange={this.props.handleChange} className="right" type="text" name="location" placeholder="Location"/>
 
             <label htmlFor="title" className="left">Title</label>
-            <input onChange={this.props.handleChange} className="right" type="text" name="title" placeholder="title"/>
+            <input onChange={this.props.handleChange} className="right" type="text" name="title" placeholder="Title"/>
           
             <label htmlFor="duties" className="left">Duties</label>
-            <input onChange={this.props.handleChange} className="right" type="text" name="duties"/>
+            <input onChange={this.props.handleChange} className="right" type="text" name="Duties" placeholder="Duties"/>
 
             <div className="buttons">
             <button 
