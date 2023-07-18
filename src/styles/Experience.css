@@ -38,13 +38,13 @@ h3 {
 
 .left {
   grid-column: 1 / 2;
-  align-self: flex-end;
+  align-self: center;
   text-align: right;
 }
 
 .right {
   grid-column: 2 / 3;
-  align-self: flex-end;
+  align-self: center;
 }
 
 input {

@@ -32,25 +32,19 @@ class SkillsForm extends Component {
             </form>
           
       ) : (
-          <form action="" className="skillform">
+          <form action="" className="skilleditform">
 
             <h3>Edit Skills</h3>
-
-            {/* { this.props.skillSet.map((skill, idx) => {
-              return (<>
-              <input key={idx} placeholder={skill.skillName} onChange={ this.props.handleChange }/>
-              <DeleteBtn 
-                onClick = { () => this.props.handleDeleteSkill(skill.skillID)}
-              /> */}
             
             { this.props.skillSet.filter((skill) => !this.props.skillsToDelete.find((el) => el.skillID === skill.skillID)).map((skill, idx) => {return (
               <React.Fragment key={idx}>
 
                 <input 
+                  class="skilleditforminput"
                   placeholder={skill.skillName} 
                   onChange={ (e) => this.props.handleChangeEditForm(e, skill.skillID) }/>
 
-                <DeleteBtn 
+                <DeleteBtn
                   onClick = { () => this.props.handleTempDelete(skill)}
                 />
 

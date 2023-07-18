@@ -15,6 +15,14 @@
   grid-template-rows: 2em 2em auto;
 }
 
+.skilleditform {
+  padding: 15px;
+  background-color: aliceblue;
+  width: 80%;
+  display: grid;
+  grid-template-columns: fit-content(40px) auto;
+}
+
 .skillseditbtn {
   margin-left: 15px;
   border-radius:50%;
@@ -48,5 +56,9 @@ input {
 
 li {
   list-style: none;
+}
+
+.skilleditforminput {
+  align-self: center;
 }
 
